@@ -16,6 +16,7 @@ namespace WoWArmory.Data
         {
 
         }
+        public DbSet<WoWUser> WoWUsers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Hero> Heroes { get; set; }
         public DbSet<Post> Posts { get; set; }

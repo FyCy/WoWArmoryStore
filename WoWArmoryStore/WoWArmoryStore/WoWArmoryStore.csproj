@@ -14,6 +14,7 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\WoWArmory.Data\WoWArmory.Data.csproj" />
     <ProjectReference Include="..\WoWArmory.Models\WoWArmory.Data.Models.csproj" />
   </ItemGroup>
 

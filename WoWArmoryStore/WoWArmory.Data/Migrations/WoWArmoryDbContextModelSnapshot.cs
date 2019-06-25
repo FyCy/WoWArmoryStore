@@ -147,11 +147,11 @@ namespace WoWArmory.Data.Migrations
 
                     b.Property<int>("HeroRace");
 
-                    b.Property<string>("UserId");
+                    b.Property<string>("WoWUserId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("WoWUserId");
 
                     b.ToTable("Heroes");
                 });
@@ -162,11 +162,11 @@ namespace WoWArmory.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("UserId");
+                    b.Property<string>("WoWUserId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("WoWUserId");
 
                     b.ToTable("Orders");
                 });
@@ -185,11 +185,11 @@ namespace WoWArmory.Data.Migrations
 
                     b.Property<int>("Tags");
 
-                    b.Property<string>("UserId");
+                    b.Property<string>("WoWUserId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("WoWUserId");
 
                     b.ToTable("Posts");
                 });
@@ -220,18 +220,18 @@ namespace WoWArmory.Data.Migrations
 
                     b.Property<int>("RequiredLevel");
 
-                    b.Property<string>("UserId");
+                    b.Property<string>("WoWUserId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("WoWUserId");
 
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("WoWArmory.Data.Models.User", b =>
+            modelBuilder.Entity("WoWArmory.Data.Models.WoWUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -292,7 +292,7 @@ namespace WoWArmory.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("WoWArmory.Data.Models.User")
+                    b.HasOne("WoWArmory.Data.Models.WoWUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -300,7 +300,7 @@ namespace WoWArmory.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("WoWArmory.Data.Models.User")
+                    b.HasOne("WoWArmory.Data.Models.WoWUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -313,7 +313,7 @@ namespace WoWArmory.Data.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("WoWArmory.Data.Models.User")
+                    b.HasOne("WoWArmory.Data.Models.WoWUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -321,7 +321,7 @@ namespace WoWArmory.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("WoWArmory.Data.Models.User")
+                    b.HasOne("WoWArmory.Data.Models.WoWUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -329,23 +329,23 @@ namespace WoWArmory.Data.Migrations
 
             modelBuilder.Entity("WoWArmory.Data.Models.Hero", b =>
                 {
-                    b.HasOne("WoWArmory.Data.Models.User", "User")
+                    b.HasOne("WoWArmory.Data.Models.WoWUser", "WoWUser")
                         .WithMany("Heroes")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("WoWUserId");
                 });
 
             modelBuilder.Entity("WoWArmory.Data.Models.Order", b =>
                 {
-                    b.HasOne("WoWArmory.Data.Models.User", "User")
+                    b.HasOne("WoWArmory.Data.Models.WoWUser", "WoWUser")
                         .WithMany("Orders")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("WoWUserId");
                 });
 
             modelBuilder.Entity("WoWArmory.Data.Models.Post", b =>
                 {
-                    b.HasOne("WoWArmory.Data.Models.User", "User")
+                    b.HasOne("WoWArmory.Data.Models.WoWUser", "WoWUser")
                         .WithMany("Posts")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("WoWUserId");
                 });
 
             modelBuilder.Entity("WoWArmory.Data.Models.Product", b =>
@@ -354,9 +354,9 @@ namespace WoWArmory.Data.Migrations
                         .WithMany("Products")
                         .HasForeignKey("OrderId");
 
-                    b.HasOne("WoWArmory.Data.Models.User")
+                    b.HasOne("WoWArmory.Data.Models.WoWUser")
                         .WithMany("Products")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("WoWUserId");
                 });
 #pragma warning restore 612, 618
         }
