@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WoWArmory.Data.Models.Enum
+namespace WoWArmory.Data.Models.Enum.Classes
+
 {
-    public enum Classes
+    public enum Class
     {
         Warrior = 1,
         Paladin = 2,

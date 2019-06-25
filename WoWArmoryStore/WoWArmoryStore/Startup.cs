@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WoWArmory.Data.Models;
 using WoWArmory.Data;
+using WoWArmory.Services.Data.Contracts;
+using WoWArmory.Services.Data;
 
 namespace WoWArmoryStore
 {
@@ -39,6 +41,11 @@ namespace WoWArmoryStore
                 .AddEntityFrameworkStores<WoWArmoryDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+
+            //Add Service Here 
+            services.AddTransient<IHeroService, HeroService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

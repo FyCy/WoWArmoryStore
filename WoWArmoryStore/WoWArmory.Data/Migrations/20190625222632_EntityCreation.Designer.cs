@@ -10,7 +10,7 @@ using WoWArmory.Data;
 namespace WoWArmory.Data.Migrations
 {
     [DbContext(typeof(WoWArmoryDbContext))]
-    [Migration("20190625184326_EntityCreation")]
+    [Migration("20190625222632_EntityCreation")]
     partial class EntityCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -140,8 +140,6 @@ namespace WoWArmory.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("AllowedWeapons");
 
                     b.Property<int>("HeroClass");
 

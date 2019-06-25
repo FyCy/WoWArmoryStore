@@ -139,8 +139,6 @@ namespace WoWArmory.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AllowedWeapons");
-
                     b.Property<int>("HeroClass");
 
                     b.Property<int>("HeroFaction");

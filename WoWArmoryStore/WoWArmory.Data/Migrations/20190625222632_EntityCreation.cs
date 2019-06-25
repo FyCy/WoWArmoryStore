@@ -162,8 +162,7 @@ namespace WoWArmory.Data.Migrations
                     WoWUserId = table.Column<string>(nullable: true),
                     HeroFaction = table.Column<int>(nullable: false),
                     HeroRace = table.Column<int>(nullable: false),
-                    HeroClass = table.Column<int>(nullable: false),
-                    AllowedWeapons = table.Column<int>(nullable: false)
+                    HeroClass = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

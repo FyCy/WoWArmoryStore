@@ -2,7 +2,7 @@
 
 namespace WoWArmory.Data.Models.Enum
 {
-    public enum Races
+    public enum Race
     {
         Human = 1,
         Dwarf = 2,
@@ -18,6 +18,6 @@ namespace WoWArmory.Data.Models.Enum
         Troll = 11,
         [Display(Name = "Blood Elf")]
         BloodElf = 12, 
-        Goblin = 13, 
+        Goblin = 13
     }
 }

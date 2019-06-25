@@ -2,7 +2,7 @@
 
 namespace WoWArmory.Data.Models.Enum
 {
-    public enum AllowedWeapons
+    public enum Weapons
     {
         [Display(Name = "One Handed Axe")]
         OneHandedAxe = 1,
