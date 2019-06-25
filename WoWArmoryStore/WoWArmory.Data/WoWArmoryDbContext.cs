@@ -5,7 +5,7 @@ using WoWArmory.Data.Models;
 namespace WoWArmory.Data
 {
 
-    public class WoWArmoryDbContext : IdentityDbContext<User>
+    public class WoWArmoryDbContext : IdentityDbContext<WoWUser>
     {
         
         public WoWArmoryDbContext(DbContextOptions<WoWArmoryDbContext> options)

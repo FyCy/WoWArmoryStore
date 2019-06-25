@@ -10,8 +10,8 @@ namespace WoWArmory.Data.Models
         {
            this.PostTime = DateTime.UtcNow;
         }
-        public string UserId { get; set; }
-        public User User { get; set; }
+        public string WoWUserId { get; set; }
+        public WoWUser WoWUser { get; set; }
 
         public string  Description { get; set; }
 

@@ -11,8 +11,8 @@ namespace WoWArmory.Data.Models
             this.Products = new List<Product>();
         }
 
-        public string UserId { get; set; }
-        public User User { get; set; }
+        public string WoWUserId { get; set; }
+        public WoWUser WoWUser { get; set; }
 
         public ICollection<Product> Products { get; set; }
        

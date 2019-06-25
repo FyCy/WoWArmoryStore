@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using WoWArmoryStore.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WoWArmory.Data.Models;
 
 namespace WoWArmoryStore
 {
@@ -38,7 +39,7 @@ namespace WoWArmoryStore
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<WoWUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
