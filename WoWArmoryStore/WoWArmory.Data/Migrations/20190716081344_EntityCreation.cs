@@ -160,6 +160,7 @@ namespace WoWArmory.Data.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     WoWUserId = table.Column<string>(nullable: true),
+                    HeroName = table.Column<string>(nullable: true),
                     HeroFaction = table.Column<int>(nullable: false),
                     HeroRace = table.Column<int>(nullable: false),
                     HeroClass = table.Column<int>(nullable: false)

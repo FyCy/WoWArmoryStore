@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using WoWArmory.Data.Common.Models;
-
+using Microsoft.AspNetCore.Identity;
 namespace WoWArmory.Data.Models
 {
     public class Order : BaseModel
@@ -12,7 +12,7 @@ namespace WoWArmory.Data.Models
         }
 
         public string WoWUserId { get; set; }
-        public WoWUser WoWUser { get; set; }
+        public IdentityUser WoWUser { get; set; }
 
         public ICollection<Product> Products { get; set; }
        

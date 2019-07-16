@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WoWArmory.Data;
 
 namespace WoWArmory.Data.Migrations
 {
     [DbContext(typeof(WoWArmoryDbContext))]
-    partial class WoWArmoryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190716093747_ChangeHeroClass")]
+    partial class ChangeHeroClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,6 +75,9 @@ namespace WoWArmory.Data.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
+
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
@@ -112,6 +117,8 @@ namespace WoWArmory.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -198,9 +205,13 @@ namespace WoWArmory.Data.Migrations
 
                     b.Property<int>("HeroRace");
 
+                    b.Property<string>("WoWUserId");
+
                     b.Property<string>("WoWUserName");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("WoWUserId");
 
                     b.ToTable("Heroes");
                 });
@@ -236,8 +247,6 @@ namespace WoWArmory.Data.Migrations
 
                     b.Property<string>("WoWUserId");
 
-                    b.Property<string>("WoWUserName");
-
                     b.HasKey("Id");
 
                     b.HasIndex("WoWUserId");
@@ -271,11 +280,22 @@ namespace WoWArmory.Data.Migrations
 
                     b.Property<int>("RequiredLevel");
 
+                    b.Property<string>("WoWUserId");
+
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
 
+                    b.HasIndex("WoWUserId");
+
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("WoWArmory.Data.Models.WoWUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.HasDiscriminator().HasValue("WoWUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -323,17 +343,24 @@ namespace WoWArmory.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("WoWArmory.Data.Models.Hero", b =>
+                {
+                    b.HasOne("WoWArmory.Data.Models.WoWUser")
+                        .WithMany("Heroes")
+                        .HasForeignKey("WoWUserId");
+                });
+
             modelBuilder.Entity("WoWArmory.Data.Models.Order", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "WoWUser")
-                        .WithMany()
+                    b.HasOne("WoWArmory.Data.Models.WoWUser", "WoWUser")
+                        .WithMany("Orders")
                         .HasForeignKey("WoWUserId");
                 });
 
             modelBuilder.Entity("WoWArmory.Data.Models.Post", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "WoWUser")
-                        .WithMany()
+                    b.HasOne("WoWArmory.Data.Models.WoWUser", "WoWUser")
+                        .WithMany("Posts")
                         .HasForeignKey("WoWUserId");
                 });
 
@@ -342,6 +369,10 @@ namespace WoWArmory.Data.Migrations
                     b.HasOne("WoWArmory.Data.Models.Order")
                         .WithMany("Products")
                         .HasForeignKey("OrderId");
+
+                    b.HasOne("WoWArmory.Data.Models.WoWUser")
+                        .WithMany("Products")
+                        .HasForeignKey("WoWUserId");
                 });
 #pragma warning restore 612, 618
         }

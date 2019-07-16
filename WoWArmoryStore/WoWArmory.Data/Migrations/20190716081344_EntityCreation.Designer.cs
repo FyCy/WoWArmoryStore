@@ -10,7 +10,7 @@ using WoWArmory.Data;
 namespace WoWArmory.Data.Migrations
 {
     [DbContext(typeof(WoWArmoryDbContext))]
-    [Migration("20190625222632_EntityCreation")]
+    [Migration("20190716081344_EntityCreation")]
     partial class EntityCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -144,6 +144,8 @@ namespace WoWArmory.Data.Migrations
                     b.Property<int>("HeroClass");
 
                     b.Property<int>("HeroFaction");
+
+                    b.Property<string>("HeroName");
 
                     b.Property<int>("HeroRace");
 

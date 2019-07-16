@@ -1,22 +1,27 @@
-﻿@*@model WoWArmory.Models.InputModels.CreateHeroInputModel*@
+﻿@model WoWArmory.Models.InputModels.CreateHeroInputModel
 
 @{
     ViewData["Title"] = "HeroCreation";
 }
-    <h1>HeroCreation</h1>
+<h1>HeroCreation</h1>
 <div class="row">
     <div class="col-md-4">
-        <form   method="POST">
+        <form asp-controller="Hero" asp-action="Faction" method="POST">
             <div class="form-group">
 
-                <select class="form-control" id="sel1">
+
+                <div class="form-group" >
+                    <input type="text" name="HeroName" value=""  asp-for="HeroName"/>
+                </div>
+
+                <select class="form-group" asp-for="HeroFaction">
                     @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Faction)))
                     {
                         <option>@item</option>
                     }
                 </select>
                 <br />
-                <select class="form-control" id="sel1">
+                <select class="form-group" asp-for="HeroRace">
 
                     @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Race)))
                     {
@@ -25,7 +30,7 @@
 
                 </select>
                 <br />
-                <select class="form-control" id="sel1">
+                <select class="form-group" asp-for="HeroClass">
 
                     @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.Class)))
                     {
@@ -35,13 +40,12 @@
                 </select>
                 <br>
             </div>
+
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">Create Hero</button>
             </div>
+
+
         </form>
-       
     </div>
 </div>
-
-
-

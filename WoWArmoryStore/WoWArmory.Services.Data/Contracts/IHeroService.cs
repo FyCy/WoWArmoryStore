@@ -5,7 +5,7 @@ namespace WoWArmory.Services.Data.Contracts
 {
     public interface IHeroService
     {
-        Hero Create(CreateHeroInputModel heroModel);
+        Hero Create(CreateHeroInputModel heroModel , string currUser);
 
         
     }

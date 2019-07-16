@@ -22,4 +22,16 @@
     <ProjectReference Include="..\WoWArmory.Services.Data\WoWArmory.Services.Data.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Content Update="Views\Hero\AllianceRaces.cshtml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="System\Web\" />
+  </ItemGroup>
+
 </Project>

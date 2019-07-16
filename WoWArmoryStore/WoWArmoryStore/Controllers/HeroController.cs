@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using WoWArmory.Models.InputModels;
 using WoWArmory.Services.Data.Contracts;
 
@@ -11,24 +7,44 @@ namespace WoWArmoryStore.Controllers
     public class HeroController : BaseController
     {
         private readonly IHeroService heroService;
+       
+
+        //private readonly currentUserName = currentuser
         public HeroController(IHeroService heroService)
         {
             this.heroService = heroService;
         }
-        
-        public  IActionResult NewHero()
+       
+        public  IActionResult Faction()
         {
-            return this.View();
+            if (this.User.Identity.IsAuthenticated)
+            {
+                return this.View();
+            }
+            else
+            {
+               return this.Redirect("/Identity/Account/Login");
+            }
+                
         }
         [HttpPost]
-        public IActionResult NewHero (CreateHeroInputModel model)
+        public IActionResult Faction (CreateHeroInputModel model)
         {
-            var hero = heroService.Create(model);
+           
+                var currentUser = this.User.Identity.Name;
+                var hero = heroService.Create(model, currentUser);
 
-            Db.Heroes.Add(hero);
-            Db.SaveChanges();
 
-            return this.Redirect("/");
+                Db.Heroes.Add(hero);
+                Db.SaveChanges();
+
+                return this.Redirect("/");
+            
+            
+        }
+        public IActionResult AllianceRedirect()
+        {
+            return this.View("AllianceRaces");
         }
     }
 }

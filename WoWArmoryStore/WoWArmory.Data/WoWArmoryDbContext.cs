@@ -5,7 +5,7 @@ using WoWArmory.Data.Models;
 namespace WoWArmory.Data
 {
 
-    public class WoWArmoryDbContext : IdentityDbContext<WoWUser>
+    public class WoWArmoryDbContext : IdentityDbContext
     {
         
         public WoWArmoryDbContext(DbContextOptions<WoWArmoryDbContext> options)
@@ -16,7 +16,6 @@ namespace WoWArmory.Data
         {
 
         }
-        public DbSet<WoWUser> WoWUsers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Hero> Heroes { get; set; }
         public DbSet<Post> Posts { get; set; }

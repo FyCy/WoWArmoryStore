@@ -32,16 +32,21 @@ namespace WoWArmoryStore
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            //this is for getting curretn user
+           // services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddDbContext<WoWArmoryDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<WoWUser>()
+            services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<WoWArmoryDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            services.AddMvc(options =>
+           options.EnableEndpointRouting = false)
+           .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             //Add Service Here 
             services.AddTransient<IHeroService, HeroService>();
@@ -74,6 +79,8 @@ namespace WoWArmoryStore
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+
+
             });
         }
     }

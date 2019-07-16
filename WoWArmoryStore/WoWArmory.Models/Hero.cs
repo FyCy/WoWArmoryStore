@@ -6,8 +6,8 @@ namespace WoWArmory.Data.Models
 {
     public class Hero : BaseModel
     {
-        public string WoWUserId { get; set; }
-        public WoWUser WoWUser { get; set; }
+        public string WoWUserName { get; set; }
+        public string HeroName { get; set; }
         public Faction HeroFaction { get; set; }
         public Race HeroRace { get; set; }
         public Class HeroClass { get; set; }
