@@ -10,9 +10,35 @@ namespace WoWArmoryStore.Helpers
         public static List<string> Factions => new List<string> { AllianceLogo, HordeLogo };
         public static List<string> AllianceClasses => new List<string> { HumanPicture, DwarfPicture, NightElfPicture, GnomePicture, DraeneiPicture, WorgenPicture, PandarenPicture };
 
-        public static List<string> PandarenClassesPictures => new List<string> { MonkPicture, RougePicture, MagePicture, HunterPicture, PriestPicture,ShamanPicture , WarriorPicture };
-        public static List<string> HordeClasses => new List<string> {OrcPicture,UndeadPicture,TaurenPicture,TrollPicture,BloodElfPicture,GoblinPicture, PandarenPicture };
-        //Alliance race pictures
+        public static List<string> HordeClasses => new List<string> { OrcPicture, UndeadPicture, TaurenPicture, TrollPicture, BloodElfPicture, GoblinPicture, PandarenPicture };
+
+        public static List<string> PandarenClassesPictures => new List<string> { MonkPicture, RougePicture, MagePicture, HunterPicture, PriestPicture, ShamanPicture, WarriorPicture };
+
+        public static List<string> BloodElfClassesPictures => new List<string> { DeathKnightPicture,DemonHunterPicture,HunterPicture,MagePicture,MonkPicture, PaladinPicture, PriestPicture, RougePicture,WarlockPicture, WarriorPicture };
+
+        public static List<string> DraeneiClassesPictures => new List<string> {DeathKnightPicture, HunterPicture, MonkPicture, MagePicture, PriestPicture, PaladinPicture, ShamanPicture, WarriorPicture};
+
+        public static List<string> DwarfClassesPictures => new List<string> {DeathKnightPicture, HunterPicture, RougePicture, MonkPicture , MagePicture, WarlockPicture , PriestPicture, PaladinPicture , WarriorPicture , ShamanPicture};
+
+        public static List<string> GnomeClassesPictures => new List<string> {DeathKnightPicture , HunterPicture , MonkPicture , PriestPicture , WarlockPicture , WarriorPicture , MagePicture , RougePicture};
+
+        public static List<string> GoblinClassesPictures => new List<string> {DeathKnightPicture , HunterPicture , MagePicture , PriestPicture , RougePicture , WarriorPicture , WarlockPicture , ShamanPicture};
+
+        public static List<string> HumanClassesPictures => new List<string> { DeathKnightPicture , HunterPicture , RougePicture , MonkPicture , MagePicture , WarlockPicture , PriestPicture , PaladinPicture , WarriorPicture};
+
+        public static List<string> NightElfClassesPictures => new List<string> {DeathKnightPicture , DruidPicture , DemonHunterPicture , RougePicture , HunterPicture , MonkPicture , MagePicture , PriestPicture , WarriorPicture};
+
+        public static List<string> OrcClassesPictures => new List<string> {DeathKnightPicture , MonkPicture , HunterPicture , MagePicture , RougePicture , WarlockPicture , ShamanPicture , WarriorPicture};
+
+        public static List<string> TaurenClassesPictures => new List<string> {DeathKnightPicture , HunterPicture , DruidPicture , MonkPicture , PriestPicture , PaladinPicture , ShamanPicture , WarriorPicture};
+
+        public static List<string> TrollClassesPictures => new List<string> {DeathKnightPicture , MonkPicture , HunterPicture , DruidPicture ,  MagePicture , PriestPicture , RougePicture , WarriorPicture , WarlockPicture , ShamanPicture };
+
+        public static List<string> UndeadClassesPictures => new List<string> {DeathKnightPicture , HunterPicture , MagePicture, MonkPicture , PriestPicture , RougePicture , WarlockPicture , WarriorPicture};
+
+        public static List<string> WorgenClassesPictures => new List<string> {DeathKnightPicture , DruidPicture , RougePicture , HunterPicture , MagePicture , PriestPicture , WarlockPicture , WarriorPicture};
+
+        //Alliance race pictures        
         public const string HumanPicture = @"https://bnetcmsus-a.akamaihd.net/cms/gallery/VY868KR0EVQ41533927441456.png";
         public const string DwarfPicture = @"https://bnetcmsus-a.akamaihd.net/cms/gallery/DNJ3LJWA38671533927441195.png";
         public const string NightElfPicture = @"https://bnetcmsus-a.akamaihd.net/cms/gallery/N2IJPVUXVHAR1533927442157.png";
@@ -20,7 +46,7 @@ namespace WoWArmoryStore.Helpers
         public const string DraeneiPicture = @"https://bnetcmsus-a.akamaihd.net/cms/gallery/LEXYOLGGTTUS1533927440727.png";
         public const string WorgenPicture = @"http://bnetcmsus-a.akamaihd.net/cms/gallery/0V6056VVLQXE1533927442809.png";
         public const string PandarenPicture = @"https://bnetcmsus-a.akamaihd.net/cms/gallery/C27RNB06BJIR1533927442193.png";
-        
+
         //Horde race pictures
         public const string OrcPicture = @"https://bnetcmsus-a.akamaihd.net/cms/gallery/JVPN9VNE0QNH1533927442123.png";
         public const string UndeadPicture = @"https://bnetcmsus-a.akamaihd.net/cms/gallery/P9XBFVWB6BS21533927442641.png";
@@ -29,7 +55,7 @@ namespace WoWArmoryStore.Helpers
         public const string BloodElfPicture = @"https://bnetcmsus-a.akamaihd.net/cms/gallery/3AB01HN47GVW1533927440397.png";
         public const string GoblinPicture = @"https://bnetcmsus-a.akamaihd.net/cms/gallery/B2OTWN3EDUXQ1533927440916.png";
 
-        //Pandaren class pictures
+        //Classes pictures
         public const string MonkPicture = @"https://blzmedia-a.akamaihd.net/wow/icons/56/class_monk.jpg";
         public const string RougePicture = @"https://blzmedia-a.akamaihd.net/wow/icons/56/class_rogue.jpg";
         public const string HunterPicture = @"https://blzmedia-a.akamaihd.net/wow/icons/56/class_hunter.jpg";
@@ -37,8 +63,13 @@ namespace WoWArmoryStore.Helpers
         public const string PriestPicture = @"https://blzmedia-a.akamaihd.net/wow/icons/56/class_priest.jpg";
         public const string ShamanPicture = @"https://blzmedia-a.akamaihd.net/wow/icons/56/class_shaman.jpg";
         public const string WarriorPicture = @"https://blzmedia-a.akamaihd.net/wow/icons/56/class_warrior.jpg";
+        public const string DeathKnightPicture = @"https://blzmedia-a.akamaihd.net/wow/icons/56/class_death-knight.jpg";
+        public const string DemonHunterPicture = @"https://blzmedia-a.akamaihd.net/wow/icons/56/class_demon-hunter.jpg";      
+        public const string PaladinPicture = @"https://blzmedia-a.akamaihd.net/wow/icons/56/class_paladin.jpg";
+        public const string WarlockPicture = @"https://blzmedia-a.akamaihd.net/wow/icons/56/class_warlock.jpg";
+        public const string DruidPicture = @"https://blzmedia-a.akamaihd.net/wow/icons/56/class_druid.jpg";
 
-
+        //Expansion pictures
         public const string TheBurningCrusade = @"https://stmed.net/sites/default/files/world-of-warcraft%3A-the-burning-crusade-hd-wallpapers-33913-1091723.jpg";
         public const string TheWrathoftheLichKing = @"https://wallpapercave.com/wp/ltjRnkg.jpg";
         public const string Cataclysm = @"https://stmed.net/sites/default/files/world-of-warcraft%3A-cataclysm-hd-wallpapers-33911-5523504.jpg";

@@ -54,6 +54,10 @@
 
 
                 @*Classes*@
+
+                @* ---------------------------- HORDE ---------------------------- *@
+
+                @*Pandaren *@
                 @foreach (var pandarenClassPictures in WoWArmoryStore.Helpers.GlobalConstants.PandarenClassesPictures)
                 {
                     <img src="@pandarenClassPictures" height="100" width="100" class="rounded float-md-right   pandarenClasses " type="button" alt="aaaa" />
@@ -65,6 +69,165 @@
                         <button value="@item" id="#kur" class="pandarenClasses" type="submit">@item</button>
                     </div>
                 }
+
+                @*BloodElf *@
+                @foreach (var bloodElfClassPictures in WoWArmoryStore.Helpers.GlobalConstants.BloodElfClassesPictures)
+                {
+                    <img src="@bloodElfClassPictures" height="100" width="100" class="rounded float-md-right bloodElfClasses " type="button" alt="aaaa" />
+                    <br />
+                }
+                @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.BloodElfClasses)))
+                {
+                    <div class="form-group">
+                        <button value="@item" id="#kur" class="bloodElfClasses" type="submit">@item</button>
+                    </div>
+                }
+
+                @*Orc *@
+                @foreach (var orcClassPictures in WoWArmoryStore.Helpers.GlobalConstants.OrcClassesPictures)
+                {
+                    <img src="@orcClassPictures" height="100" width="100" class="rounded float-md-right orcClasses " type="button" alt="aaaa" />
+                    <br />
+                }
+                @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.OrcClasses)))
+                {
+                    <div class="form-group">
+                        <button value="@item" id="#kur" class="orcClasses" type="submit">@item</button>
+                    </div>
+                }
+
+                @*@*Undaed *@
+                @foreach (var undeadClassPictures in WoWArmoryStore.Helpers.GlobalConstants.UndeadClassesPictures)
+                {
+                    <img src="@undeadClassPictures" height="100" width="100" class="rounded float-md-right undeadClassses" type="button" alt="aaaa" />
+                    <br />
+                }
+                @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.UndeadClasses)))
+                {
+                    <div class="form-group">
+                        <button value="@item" id="#kur" class="undeadClassses" type="submit">@item</button>
+                    </div>
+                }
+
+                @*Tauren *@
+                @foreach (var taurenClassPictures in WoWArmoryStore.Helpers.GlobalConstants.TaurenClassesPictures)
+                {
+                    <img src="@taurenClassPictures" height="100" width="100" class="rounded float-md-right taurenClasses " type="button" alt="aaaa" />
+                    <br />
+                }
+                @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.TaurenClasses)))
+                {
+                    <div class="form-group">
+                        <button value="@item" id="#kur" class="taurenClasses" type="submit">@item</button>
+                    </div>
+                }
+
+                @*Troll *@
+                @foreach (var trollClassPictures in WoWArmoryStore.Helpers.GlobalConstants.TrollClassesPictures)
+                {
+                    <img src="@trollClassPictures" height="100" width="100" class="rounded float-md-right trollClasses " type="button" alt="aaaa" />
+                    <br />
+                }
+                @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.TrollClasses)))
+                {
+                    <div class="form-group">
+                        <button value="@item" id="#kur" class="trollClasses" type="submit">@item</button>
+                    </div>
+                }
+
+                @*Goblin *@
+                @foreach (var goblinClassPictures in WoWArmoryStore.Helpers.GlobalConstants.GoblinClassesPictures)
+                {
+                    <img src="@goblinClassPictures" height="100" width="100" class="rounded float-md-right goblinClasses " type="button" alt="aaaa" />
+                    <br />
+                }
+                @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.GoblinClasses)))
+                {
+                    <div class="form-group">
+                        <button value="@item" id="#kur" class="goblinClasses" type="submit">@item</button>
+                    </div>
+                }
+                @* ---------------------------- aLLIANCE ---------------------------- *@
+                @*Human *@
+                @foreach (var humanClassPictures in WoWArmoryStore.Helpers.GlobalConstants.HumanClassesPictures)
+                {
+                    <img src="@humanClassPictures" height="100" width="100" class="rounded float-md-right humanClasses " type="button" alt="aaaa" />
+                    <br />
+                }
+                @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.HumanClasses)))
+                {
+                    <div class="form-group">
+                        <button value="@item" id="#kur" class="humanClasses" type="submit">@item</button>
+                    </div>
+                }
+
+                @*Dwarf *@
+                @foreach (var dwarfClassPictures in WoWArmoryStore.Helpers.GlobalConstants.DwarfClassesPictures)
+                {
+                    <img src="@dwarfClassPictures" height="100" width="100" class="rounded float-md-right dwarfClasses " type="button" alt="aaaa" />
+                    <br />
+                }
+                @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.DwarfClasses)))
+                {
+                    <div class="form-group">
+                        <button value="@item" id="#kur" class="dwarfClasses" type="submit">@item</button>
+                    </div>
+                }
+
+                @*Night Elf *@
+                @foreach (var nightElfClassPictures in WoWArmoryStore.Helpers.GlobalConstants.NightElfClassesPictures)
+                {
+                    <img src="@nightElfClassPictures" height="100" width="100" class="rounded float-md-right nightElfClasses " type="button" alt="aaaa" />
+                    <br />
+                }
+                @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.NightElfClasses)))
+                {
+                    <div class="form-group">
+                        <button value="@item" id="#kur" class="nightElfClasses" type="submit">@item</button>
+                    </div>
+                }
+
+                @*Gnome *@
+                @foreach (var gnomeClassPictures in WoWArmoryStore.Helpers.GlobalConstants.GnomeClassesPictures)
+                {
+                    <img src="@gnomeClassPictures" height="100" width="100" class="rounded float-md-right gnomeClasses " type="button" alt="aaaa" />
+                    <br />
+                }
+                @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.GnomeClasses)))
+                {
+                    <div class="form-group">
+                        <button value="@item" id="#kur" class="gnomeClasses" type="submit">@item</button>
+                    </div>
+                }
+
+                @*Draenei *@
+                @foreach (var draeneiClassPictures in WoWArmoryStore.Helpers.GlobalConstants.DraeneiClassesPictures)
+                {
+                    <img src="@draeneiClassPictures" height="100" width="100" class="rounded float-md-right draeneiClasses " type="button" alt="aaaa" />
+                    <br />
+                }
+                @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.DraeneiClasses)))
+                {
+                    <div class="form-group">
+                        <button value="@item" id="#kur" class="draeneiClasses" type="submit">@item</button>
+                    </div>
+                }
+
+
+                @*Worgen *@
+                @foreach (var worgenClassPictures in WoWArmoryStore.Helpers.GlobalConstants.WorgenClassesPictures)
+                {
+                    <img src="@worgenClassPictures" height="100" width="100" class="rounded float-md-right worgenClasses " type="button" alt="aaaa" />
+                    <br />
+                }
+                @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.WorgenClasses)))
+                {
+                    <div class="form-group">
+                        <button value="@item" id="#kur" class="worgenClasses" type="submit">@item</button>
+                    </div>
+                }
+
+                
             </div>
 
             <div class="form-group">
