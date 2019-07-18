@@ -8,44 +8,71 @@
     <div class="col-md-4">
         <form asp-controller="Hero" asp-action="Faction" method="POST">
             <div class="form-group">
-
-
-                <div class="form-group" >
-                    <input type="text" name="HeroName" value=""  asp-for="HeroName"/>
+                <div class="form-group">
+                    <input type="text" name="HeroName" value="" asp-for="HeroName" />
                 </div>
 
-                <select class="form-group" asp-for="HeroFaction">
-                    @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Faction)))
+                @*<select class="form-group" asp-for="HeroFaction">
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Faction)))
+                        {
+                            <option>@item</option>
+                        }
+                    </select>
+                    <br />
+                    <select class="form-group" asp-for="HeroRace">
+
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Race)))
+                        {
+                            <option>@item</option>
+                        }
+
+                    </select>
+                    <br />
+                    <select class="form-group" asp-for="HeroClass">
+
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.Class)))
+                        {
+                            <option>@item</option>
+                        }
+
+                    </select>
+                    <br>*@
+
+                @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Faction)))
+                {
+
+                    @if (@item.ToString() == "Alliance")
                     {
-                        <option>@item</option>
+                        <img src="@WoWArmoryStore.Helpers.GlobalConstants.AllianceLogo" height="250" width="250" value="@item" class="faction" type="button" alt="aaaa" />
+                        <input value="@item" class="faction" type="button" label="@item" />
                     }
-                </select>
+                    @if (@item.ToString() == "Horde")
+                    {
+                        <img src="@WoWArmoryStore.Helpers.GlobalConstants.HordeLogo" height="250" width="250" value="@item" class="faction" type="button" alt="aaaa" />
+                        <input value="@item" class="faction" type="button" label="@item" />
+                    }
+                }
+                @*<input value="@item" class="faction" type="button" label="@item" />*@
+
+                }
                 <br />
-                <select class="form-group" asp-for="HeroRace">
-
-                    @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Race)))
-                    {
-                        <option>@item</option>
-                    }
-
-                </select>
-                <br />
-                <select class="form-group" asp-for="HeroClass">
-
-                    @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.Class)))
-                    {
-                        <option>@item</option>
-                    }
-
-                </select>
-                <br>
+                @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Races.AlianceRaces)))
+                {
+                    <button value="@item" class="alianceRaces">@item</button>
+                }<br />
+                @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Races.HordeRaces)))
+                {
+                    <button value="@item" class="hordeRaces">@item</button>
+                }
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Create Hero</button>
-            </div>
+                @*<button type="submit" class="btn btn-primary">Create Hero</button>*@
 
+                <button id="kur" type="submit">Kurec</button>
+            </div>
 
         </form>
     </div>
 </div>
+<link href="~/js/site.js" rel="script" />

@@ -28,7 +28,7 @@ namespace WoWArmoryStore.Controllers
                 
         }
         [HttpPost]
-        public IActionResult Faction (CreateHeroInputModel model)
+        public IActionResult Faction ([FromBody]CreateHeroInputModel model)
         {
            
                 var currentUser = this.User.Identity.Name;
@@ -37,14 +37,8 @@ namespace WoWArmoryStore.Controllers
 
                 Db.Heroes.Add(hero);
                 Db.SaveChanges();
-
-                return this.Redirect("/");
-            
-            
-        }
-        public IActionResult AllianceRedirect()
-        {
-            return this.View("AllianceRaces");
+            //return new JsonResult(hero);
+            return this.Redirect("/");
         }
     }
 }

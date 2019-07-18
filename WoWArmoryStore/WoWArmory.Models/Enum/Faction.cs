@@ -2,7 +2,8 @@
 {
     public enum Faction
     {
-        Horde = 1, 
-        Alliance = 2
+
+        Alliance = 1,
+        Horde = 2
     }
 }
