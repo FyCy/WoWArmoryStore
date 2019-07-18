@@ -11,64 +11,63 @@
                 <div class="form-group">
                     <input type="text" name="HeroName" value="" asp-for="HeroName" />
                 </div>
-
-                @*<select class="form-group" asp-for="HeroFaction">
-                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Faction)))
-                        {
-                            <option>@item</option>
-                        }
-                    </select>
-                    <br />
-                    <select class="form-group" asp-for="HeroRace">
-
-                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Race)))
-                        {
-                            <option>@item</option>
-                        }
-
-                    </select>
-                    <br />
-                    <select class="form-group" asp-for="HeroClass">
-
-                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.Class)))
-                        {
-                            <option>@item</option>
-                        }
-
-                    </select>
-                    <br>*@
-
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Faction)))
                 {
 
                     @if (@item.ToString() == "Alliance")
                     {
-                        <img src="@WoWArmoryStore.Helpers.GlobalConstants.AllianceLogo" height="250" width="250" value="@item" class="faction" type="button" alt="aaaa" />
-                        <input value="@item" class="faction" type="button" label="@item" />
+                        <img src="@WoWArmoryStore.Helpers.GlobalConstants.AllianceLogo" height="250" width="250" value="@item" class="rounded float-left faction" type="button" alt="aaaa" />
+                        <input value="@item" class="faction" type="button" label="@item" /><br />
                     }
                     @if (@item.ToString() == "Horde")
                     {
-                        <img src="@WoWArmoryStore.Helpers.GlobalConstants.HordeLogo" height="250" width="250" value="@item" class="faction" type="button" alt="aaaa" />
+                        <img src="@WoWArmoryStore.Helpers.GlobalConstants.HordeLogo" height="250" width="250" value="@item" class="rounded float-md-right   faction " type="button" alt="aaaa" />
                         <input value="@item" class="faction" type="button" label="@item" />
                     }
                 }
-                @*<input value="@item" class="faction" type="button" label="@item" />*@
 
-                }
-                <br />
+
+                @*Races*@
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Races.AlianceRaces)))
                 {
-                    <button value="@item" class="alianceRaces">@item</button>
-                }<br />
+                    @*<button value="@item" class="allianceRaces">@item</button>*@
+                    <input value="@item" class="allianceRaces" type="button" label="@item" />
+
+                }
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Races.HordeRaces)))
                 {
-                    <button value="@item" class="hordeRaces">@item</button>
+                    @*<button value="@item" class="hordeRaces">@item</button>*@
+                    <input value="@item" class="hordeRaces" type="button" label="@item" />
+                }
+
+                @foreach (var classPicture in WoWArmoryStore.Helpers.GlobalConstants.AllianceClasses)
+                {
+                    <img src="@classPicture" height="250" width="250" class="rounded float-md-right   allianceRaces " type="button" alt="aaaa" />
+
+                    <br />
+                }
+                @foreach (var classPicture in WoWArmoryStore.Helpers.GlobalConstants.HordeClasses)
+                {
+                    <img src="@classPicture" height="250" width="250" class="rounded float-md-right   hordeRaces " type="button" alt="aaaa" />
+                    <br />
+                }
+
+
+                @*Classes*@
+                @foreach (var pandarenClassPictures in WoWArmoryStore.Helpers.GlobalConstants.PandarenClassesPictures)
+                {
+                    <img src="@pandarenClassPictures" height="100" width="100" class="rounded float-md-right   pandarenClasses " type="button" alt="aaaa" />
+                    <br />
+                }
+                @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.PandarenClasses)))
+                {
+                    <div class="form-group">
+                        <button value="@item" id="#kur" class="pandarenClasses" type="submit">@item</button>
+                    </div>
                 }
             </div>
 
             <div class="form-group">
-                @*<button type="submit" class="btn btn-primary">Create Hero</button>*@
-
                 <button id="kur" type="submit">Kurec</button>
             </div>
 

@@ -37,8 +37,8 @@ namespace WoWArmoryStore.Controllers
 
                 Db.Heroes.Add(hero);
                 Db.SaveChanges();
-            //return new JsonResult(hero);
-            return this.Redirect("/");
+            return new JsonResult(hero);
+            //return this.Redirect("/");
         }
     }
 }
