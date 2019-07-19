@@ -8,21 +8,19 @@
     <div class="col-md-4">
         <form asp-controller="Hero" asp-action="Faction" method="POST">
             <div class="form-group">
-                <div class="form-group">
-                    <input type="text" name="HeroName" value="" asp-for="HeroName" />
-                </div>
+
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Faction)))
                 {
 
                     @if (@item.ToString() == "Alliance")
                     {
                         <img src="@WoWArmoryStore.Helpers.GlobalConstants.AllianceLogo" height="250" width="250" value="@item" class="rounded float-left faction" type="button" alt="aaaa" />
-                        <input value="@item" class="faction" type="button" label="@item" /><br />
+                        <input value="@item" class="faction" asp-for="HeroFaction" type="button" label="@item" /><br />
                     }
                     @if (@item.ToString() == "Horde")
                     {
                         <img src="@WoWArmoryStore.Helpers.GlobalConstants.HordeLogo" height="250" width="250" value="@item" class="rounded float-md-right   faction " type="button" alt="aaaa" />
-                        <input value="@item" class="faction" type="button" label="@item" />
+                        <input value="@item" class="faction" asp-for="HeroFaction" type="button" label="@item" />
                     }
                 }
 
@@ -31,13 +29,13 @@
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Races.AlianceRaces)))
                 {
                     @*<button value="@item" class="allianceRaces">@item</button>*@
-                    <input value="@item" class="allianceRaces" type="button" label="@item" />
+                    <input value="@item" class="allianceRaces" asp-for="HeroRace" type="button" label="@item" />
 
                 }
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Races.HordeRaces)))
                 {
                     @*<button value="@item" class="hordeRaces">@item</button>*@
-                    <input value="@item" class="hordeRaces" type="button" label="@item" />
+                    <input value="@item" class="hordeRaces" asp-for="HeroRace" type="button" label="@item" />
                 }
 
                 @foreach (var classPicture in WoWArmoryStore.Helpers.GlobalConstants.AllianceClasses)
@@ -65,9 +63,8 @@
                 }
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.PandarenClasses)))
                 {
-                    <div class="form-group">
-                        <button value="@item" id="#kur" class="pandarenClasses" type="submit">@item</button>
-                    </div>
+                    <input value="@item" class="pandarenClasses LastStep" asp-for="HeroClass" type="button" label="@item" />
+
                 }
 
                 @*BloodElf *@
@@ -78,9 +75,8 @@
                 }
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.BloodElfClasses)))
                 {
-                    <div class="form-group">
-                        <button value="@item" id="#kur" class="bloodElfClasses" type="submit">@item</button>
-                    </div>
+                    <input value="@item" class="bloodElfClasses LastStep" asp-for="HeroClass" type="button" label="@item" />
+
                 }
 
                 @*Orc *@
@@ -91,9 +87,8 @@
                 }
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.OrcClasses)))
                 {
-                    <div class="form-group">
-                        <button value="@item" id="#kur" class="orcClasses" type="submit">@item</button>
-                    </div>
+                    <input value="@item" class="orcClasses LastStep" asp-for="HeroClass" type="button" label="@item" />
+
                 }
 
                 @*@*Undaed *@
@@ -104,9 +99,8 @@
                 }
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.UndeadClasses)))
                 {
-                    <div class="form-group">
-                        <button value="@item" id="#kur" class="undeadClassses" type="submit">@item</button>
-                    </div>
+                    <input value="@item" class="undeadClassses LastStep" asp-for="HeroClass" type="button" label="@item" />
+
                 }
 
                 @*Tauren *@
@@ -117,9 +111,8 @@
                 }
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.TaurenClasses)))
                 {
-                    <div class="form-group">
-                        <button value="@item" id="#kur" class="taurenClasses" type="submit">@item</button>
-                    </div>
+                    <input value="@item" class="taurenClasses LastStep" asp-for="HeroClass" type="button" label="@item" />
+
                 }
 
                 @*Troll *@
@@ -130,9 +123,8 @@
                 }
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.TrollClasses)))
                 {
-                    <div class="form-group">
-                        <button value="@item" id="#kur" class="trollClasses" type="submit">@item</button>
-                    </div>
+                    <input value="@item" class="trollClasses LastStep" asp-for="HeroClass" type="button" label="@item" />
+
                 }
 
                 @*Goblin *@
@@ -143,11 +135,10 @@
                 }
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.GoblinClasses)))
                 {
-                    <div class="form-group">
-                        <button value="@item" id="#kur" class="goblinClasses" type="submit">@item</button>
-                    </div>
+                    <input value="@item" class="goblinClasses LastStep" asp-for="HeroClass" type="button" label="@item" />
+
                 }
-                @* ---------------------------- aLLIANCE ---------------------------- *@
+                @* ---------------------------- ALLIANCE ---------------------------- *@
                 @*Human *@
                 @foreach (var humanClassPictures in WoWArmoryStore.Helpers.GlobalConstants.HumanClassesPictures)
                 {
@@ -156,9 +147,8 @@
                 }
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.HumanClasses)))
                 {
-                    <div class="form-group">
-                        <button value="@item" id="#kur" class="humanClasses" type="submit">@item</button>
-                    </div>
+                    <input value="@item" class="humanClasses LastStep" asp-for="HeroClass" type="button" label="@item" />
+
                 }
 
                 @*Dwarf *@
@@ -169,9 +159,8 @@
                 }
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.DwarfClasses)))
                 {
-                    <div class="form-group">
-                        <button value="@item" id="#kur" class="dwarfClasses" type="submit">@item</button>
-                    </div>
+                    <input value="@item" class="dwarfClasses LastStep" asp-for="HeroClass" type="button" label="@item" />
+
                 }
 
                 @*Night Elf *@
@@ -182,9 +171,8 @@
                 }
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.NightElfClasses)))
                 {
-                    <div class="form-group">
-                        <button value="@item" id="#kur" class="nightElfClasses" type="submit">@item</button>
-                    </div>
+                    <input value="@item" class="nightElfClasses LastStep" asp-for="HeroClass" type="button" label="@item" />
+
                 }
 
                 @*Gnome *@
@@ -195,9 +183,8 @@
                 }
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.GnomeClasses)))
                 {
-                    <div class="form-group">
-                        <button value="@item" id="#kur" class="gnomeClasses" type="submit">@item</button>
-                    </div>
+                    <input value="@item" class="gnomeClasses LastStep" asp-for="HeroClass" type="button" label="@item" />
+
                 }
 
                 @*Draenei *@
@@ -208,9 +195,8 @@
                 }
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.DraeneiClasses)))
                 {
-                    <div class="form-group">
-                        <button value="@item" id="#kur" class="draeneiClasses" type="submit">@item</button>
-                    </div>
+                    <input value="@item" class="draeneiClasses LastStep" asp-for="HeroClass" type="button" label="@item" />
+
                 }
 
 
@@ -222,14 +208,15 @@
                 }
                 @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.WorgenClasses)))
                 {
-                    <div class="form-group">
-                        <button value="@item" id="#kur" class="worgenClasses" type="submit">@item</button>
-                    </div>
+                    <input value="@item" class="worgenClasses LastStep" asp-for="HeroClass" type="button" label="@item" />
+                    @*<button value="@item" class="worgenClasses LastStep">@item</button>*@
                 }
 
-                
-            </div>
 
+            </div>
+            <div class="form-group">
+                <input type="text" name="HeroName"  class="heroName" value="" asp-for="HeroName" />
+            </div>
             <div class="form-group">
                 <button id="kur" type="submit">Kurec</button>
             </div>

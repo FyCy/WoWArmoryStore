@@ -17,28 +17,40 @@ $(".gnomeClasses").hide();
 $(".draeneiClasses").hide();
 $(".worgenClasses").hide();
 $(".humanClasses").hide();
+$(".heroName").hide();
 
 
 
 let faction = "";
+let factionClasses = "";
 let heroClass = "";
-
+$(".LastStep").click(function () {
+    $(".heroName").show();
+    $(".allianceRaces").hide();
+    $(".hordeRaces").hide();
+    $(".pandarenClasses").hide();
+    $(".bloodElfClasses").hide();
+    $(".orcClasses").hide();
+    $(".undeadClassses").hide();
+    $(".taurenClasses").hide();
+    $(".trollClasses").hide();
+    $(".goblinClasses").hide();
+    $(".dwarfClasses").hide();
+    $(".nightElfClasses").hide();
+    $(".gnomeClasses").hide();
+    $(".draeneiClasses").hide();
+    $(".worgenClasses").hide();
+    $(".humanClasses").hide();
+})
 //Classes
 //----------------------------Horde----------------------------
-$(".allianceRaces").click(function () {
-    if ($(this).val() === "Pandaren") {
-        $(".pandarenClasses").show();
-        $(".allianceRaces").hide();
-        $(".hordeRaces").hide();
-        heroClass = "Pandaren";
-    }
-})
+
 $(".hordeRaces").click(function () {
     if ($(this).val() === "Pandaren") {
         $(".pandarenClasses").show();
         $(".allianceRaces").hide();
         $(".hordeRaces").hide();
-        heroClass = "Pandaren";
+        factionClasses = "Pandaren";
     }
 })
 $(".hordeRaces").click(function () {
@@ -46,7 +58,7 @@ $(".hordeRaces").click(function () {
         $(".bloodElfClasses").show();
         $(".allianceRaces").hide();
         $(".hordeRaces").hide();
-        heroClass = "BloodElf";
+        factionClasses = "BloodElf";
     }
 })
 
@@ -55,7 +67,7 @@ $(".hordeRaces").click(function () {
         $(".orcClasses").show();
         $(".allianceRaces").hide();
         $(".hordeRaces").hide();
-        heroClass = "Orc";
+        factionClasses = "Orc";
     }
 })
 
@@ -64,7 +76,7 @@ $(".hordeRaces").click(function () {
         $(".undeadClassses").show();
         $(".allianceRaces").hide();
         $(".hordeRaces").hide();
-        heroClass = "Undaed";
+        factionClasses = "Undaed";
     }
 })
 
@@ -73,7 +85,7 @@ $(".hordeRaces").click(function () {
         $(".taurenClasses").show();
         $(".allianceRaces").hide();
         $(".hordeRaces").hide();
-        heroClass = "Undaed";
+        factionClasses = "Tauren";
     }
 })
 $(".hordeRaces").click(function () {
@@ -81,7 +93,7 @@ $(".hordeRaces").click(function () {
         $(".trollClasses").show();
         $(".allianceRaces").hide();
         $(".hordeRaces").hide();
-        heroClass = "Undaed";
+        factionClasses = "Troll";
     }
 })
 
@@ -90,7 +102,7 @@ $(".hordeRaces").click(function () {
         $(".goblinClasses").show();
         $(".allianceRaces").hide();
         $(".hordeRaces").hide();
-        heroClass = "Undaed";
+        factionClasses = "Goblin";
     }
 })
 //----------------------------Alliance----------------------------
@@ -99,7 +111,16 @@ $(".allianceRaces").click(function () {
         $(".humanClasses").show();
         $(".allianceRaces").hide();
         $(".hordeRaces").hide();
-        heroClass = "Undaed";
+        factionClasses = "Human";
+    }
+})
+
+$(".allianceRaces").click(function () {
+    if ($(this).val() === "Pandaren") {
+        $(".pandarenClasses").show();
+        $(".allianceRaces").hide();
+        $(".hordeRaces").hide();
+        factionClasses = "Pandaren";
     }
 })
 
@@ -108,7 +129,7 @@ $(".allianceRaces").click(function () {
         $(".dwarfClasses").show();
         $(".allianceRaces").hide();
         $(".hordeRaces").hide();
-        heroClass = "Undaed";
+        factionClasses = "Dwarf";
     }
 })
 
@@ -117,7 +138,7 @@ $(".allianceRaces").click(function () {
         $(".nightElfClasses").show();
         $(".allianceRaces").hide();
         $(".hordeRaces").hide();
-        heroClass = "Undaed";
+        factionClasses = "NightElf";
     }
 })
 $(".allianceRaces").click(function () {
@@ -125,7 +146,7 @@ $(".allianceRaces").click(function () {
         $(".gnomeClasses").show();
         $(".allianceRaces").hide();
         $(".hordeRaces").hide();
-        heroClass = "Undaed";
+        factionClasses = "Gnome";
     }
 })
 $(".allianceRaces").click(function () {
@@ -133,7 +154,7 @@ $(".allianceRaces").click(function () {
         $(".draeneiClasses").show();
         $(".allianceRaces").hide();
         $(".hordeRaces").hide();
-        heroClass = "Undaed";
+        factionClasses = "Draenei";
     }
 })
 $(".allianceRaces").click(function () {
@@ -141,7 +162,7 @@ $(".allianceRaces").click(function () {
         $(".worgenClasses").show();
         $(".allianceRaces").hide();
         $(".hordeRaces").hide();
-        heroClass = "Undaed";
+        factionClasses = "Worgen";
     }
 })
 //Factions
@@ -159,19 +180,19 @@ $(".faction").click(function () {
         faction = "Alliance";
     }
 });
-
 $("#kur").click(function () {
     $.ajax({
-        type: "POST",
         url: "/Hero/Faction",
+        type: "POST",
         data: JSON.stringify({
             HeroName: "Strashimir",
-            HeroFaction: "Alliance",
+            HeroFaction: this.faction,
             HeroRace: "Goblin",
-            HeroClass: "Druid"
+            factionClasses: this.factionClasses
         }),
         success: "success",
         dataType: "json",
         contentType: "application/json"
     })
-})
+});
+
