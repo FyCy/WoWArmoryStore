@@ -1,4 +1,5 @@
 ﻿using WoWArmory.Data.Models;
+using WoWArmory.Data.Models.Enum;
 using WoWArmory.Models.InputModels;
 using WoWArmory.Services.Data.Contracts;
 namespace WoWArmory.Services.Data

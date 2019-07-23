@@ -15,9 +15,9 @@ namespace WoWArmoryStore.Areas.Identity.Pages.Account.Manage
 
         public static string TwoFactorAuthentication => "TwoFactorAuthentication";
 
-        public static string MyHeroes => "_UserHeroes";
+        //public static string MyHeroes => "_UserHeroes";
 
-        public static string MyHeroesNavClass(ViewContext viewContext) => PageNavClass(viewContext , MyHeroes);
+       // public static string MyHeroesNavClass(ViewContext viewContext) => PageNavClass(viewContext , MyHeroes);
 
         public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
 

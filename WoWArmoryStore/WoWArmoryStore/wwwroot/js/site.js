@@ -24,6 +24,9 @@ $(".heroName").hide();
 let faction = "";
 let factionClasses = "";
 let heroClass = "";
+let heroName = "";
+
+
 $(".LastStep").click(function () {
     $(".heroName").show();
     $(".allianceRaces").hide();
@@ -171,28 +174,37 @@ $(".faction").click(function () {
         $(".hordeRaces").show();
         $(".allianceRaces").hide();
         $(".faction").hide();
-        faction = "Horde";
+        this.faction = $(this).val();
     }
     if ($(this).val() === "Alliance") {
         $(".allianceRaces").show();
         $(".hordeRaces").hide();
         $(".faction").hide();
-        faction = "Alliance";
+        faction = $(this).val();
+        console.log($(this).val());
+        console.log(faction);
+        debugger;
     }
 });
+
+
 $("#kur").click(function () {
     $.ajax({
         url: "/Hero/Faction",
         type: "POST",
-        data: JSON.stringify({
-            HeroName: "Strashimir",
-            HeroFaction: this.faction,
-            HeroRace: "Goblin",
-            factionClasses: this.factionClasses
+        data:JSON.stringify({
+            HeroName: heroName,
+            HeroFaction: "Horde",
+            HeroRace: "Pandaren",
+            HeroClass: Paladin
         }),
         success: "success",
         dataType: "json",
         contentType: "application/json"
     })
 });
+console.log(faction);
+console.log(heroClass);
+console.log(factionClasses);
 
+debugger;

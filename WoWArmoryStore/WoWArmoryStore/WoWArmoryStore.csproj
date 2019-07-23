@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WoWArmory.Data\WoWArmory.Data.csproj" />
+    <ProjectReference Include="..\WoWArmory.Models.Common\WoWArmory.Models.Common.csproj" />
     <ProjectReference Include="..\WoWArmory.Models.InputModels\WoWArmory.Models.InputModels.csproj" />
     <ProjectReference Include="..\WoWArmory.Models\WoWArmory.Data.Models.csproj" />
     <ProjectReference Include="..\WoWArmory.Services.Data\WoWArmory.Services.Data.csproj" />
@@ -24,14 +25,14 @@
 
 
   <ItemGroup>
-    <Content Update="Views\Hero\AllianceRaces.cshtml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-
-  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Models\" />
+    <Folder Include="Pages\" />
     <Folder Include="System\Web\" />
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
 </Project>

@@ -28,17 +28,15 @@ namespace WoWArmoryStore.Controllers
                 
         }
         [HttpPost]
-        public IActionResult Faction (CreateHeroInputModel model)
+        public IActionResult Faction ([FromForm]CreateHeroInputModel model)
         {
-           
                 var currentUser = this.User.Identity.Name;
                 var hero = heroService.Create(model, currentUser);
 
-
                 Db.Heroes.Add(hero);
                 Db.SaveChanges();
-            //return new JsonResult(hero);
-            return this.Redirect("/");
+            return new ObjectResult(new { status = "success", data = $"{hero.HeroName} {hero.HeroFaction} {hero.HeroRace} {hero.HeroClass}" });
+            //return this.Redirect("/");
         }
     }
 }
