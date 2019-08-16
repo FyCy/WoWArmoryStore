@@ -1,29 +1,22 @@
 ﻿namespace WoWArmoryStore.Web.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
-    using System.Collections.Generic;
     using WoWArmoryStore.Services.Contracts;
-    using WoWArmoryStore.Services.Models;
 
     public class HomeController : BaseController
     {
+        private readonly IImageService imageService;
 
-        private readonly IGetImageService imageService;
-
-        public HomeController(IGetImageService imageService)
+        public HomeController(IImageService imageService)
         {
             this.imageService = imageService;
         }
 
         public IActionResult Index()
         {
-            var type = "HeroCreation";
-            var images = this.imageService.GetImages(type);
-            Dictionary<string, List<HeroCreationImageModel>> img = new Dictionary<string, List<HeroCreationImageModel>>
-            {            };
-            this.ViewBag.Massage = img;
+            var images = this.imageService.ImageUrls("CarouselImages");
+            this.ViewBag.ExpansionImages = images;
             return this.View();
-
         }
 
         public IActionResult Privacy()

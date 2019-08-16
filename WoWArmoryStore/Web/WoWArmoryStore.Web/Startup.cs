@@ -102,7 +102,7 @@
             services.AddTransient<ISettingsService, SettingsService>();
 
             services.AddTransient<IHeroService, HeroService>();
-            services.AddTransient<IGetImageService, GetImageService>();
+            services.AddTransient<IImageService, GetImageService>();
         }
 
        

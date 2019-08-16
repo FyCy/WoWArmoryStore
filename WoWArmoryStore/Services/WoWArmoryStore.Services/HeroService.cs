@@ -28,63 +28,81 @@
                 WoWUserName = user,
             };
 
-            this.contex.Images.Add(new Image
-            {
-                ImageName = "AllianceLogo",
-                ImageUrl = "https://i.imgur.com/WODB9rf.jpg",
-                Type = "HeroCreation",
-            });
+            //this.contex.Images.Add(new Image
+            //{
+            //    ImageName = "Monk",
+            //    ImageUrl = "https://i.imgur.com/0POPZ8e.jpg",
+            //    Type = "Class",
+            //});
 
-            this.contex.Images.Add(new Image
-            {
-                ImageName = "HordeLogo",
-                ImageUrl = "https://i.imgur.com/7iqPUVf.jpg",
-                Type = "HeroCreation",
-            });
+            //this.contex.Images.Add(new Image
+            //{
+            //    ImageName = "Hunter",
+            //    ImageUrl = "https://i.imgur.com/okMkeQq.jpg",
+            //    Type = "Class",
+            //});
 
-            this.contex.Images.Add(new Image
-            {
-                ImageName = "HordeLogo",
-                ImageUrl = "https://i.imgur.com/7iqPUVf.jpg",
-                Type = "HeroCreation",
-            });
+            //this.contex.Images.Add(new Image
+            //{
+            //    ImageName = "Priest",
+            //    ImageUrl = "https://i.imgur.com/abAGQAz.jpg",
+            //    Type = "Class",
+            //});
 
-            this.contex.Images.Add(new Image
-            {
-                ImageName = "BurningCrusade",
-                ImageUrl = "https://i.imgur.com/BzgfnL6.jpg",
-                Type = "HeroCreation",
-            });
-            this.contex.Images.Add(new Image
-            {
-                ImageName = "WrathoftheLichKing",
-                ImageUrl = "https://i.imgur.com/4jinU7x.jpg",
-                Type = "HeroCreation",
-            });
-            this.contex.Images.Add(new Image
-            {
-                ImageName = "Cataclysm",
-                ImageUrl = "https://i.imgur.com/4jinU7x.jpg",
-                Type = "HeroCreation",
-            });
-            this.contex.Images.Add(new Image
-            {
-                ImageName = "WarlordsofDraenor",
-                ImageUrl = "https://i.imgur.com/BKFB5rc.png",
-                Type = "HeroCreation",
-            });
-            this.contex.Images.Add(new Image
-            {
-                ImageName = "Legion",
-                ImageUrl = "https://i.imgur.com/ur7ecvP.jpg",
-                Type = "HeroCreation",
-            });
-            this.contex.Images.Add(new Image
-            {
-                ImageName = "BattleofAzeroth",
-                ImageUrl = "https://i.imgur.com/y5oriY6.jpg",
-                Type = "HeroCreation",
-            });
+            //this.contex.Images.Add(new Image
+            //{
+            //    ImageName = "Paladin",
+            //    ImageUrl = "https://i.imgur.com/sCaYs3m.jpg",
+            //    Type = "Class",
+            //});
+            //this.contex.Images.Add(new Image
+            //{
+            //    ImageName = "DeathKnight",
+            //    ImageUrl = "https://i.imgur.com/TcqWyep.jpg",
+            //    Type = "Class",
+            //});
+            //this.contex.Images.Add(new Image
+            //{
+            //    ImageName = "Shaman",
+            //    ImageUrl = "https://i.imgur.com/dWi7nAu.jpg",
+            //    Type = "Class",
+            //});
+            //this.contex.Images.Add(new Image
+            //{
+            //    ImageName = "Pandaren",
+            //    ImageUrl = "https://i.imgur.com/0POPZ8e.jpg",
+            //    Type = "Class",
+            //});
+            //this.contex.Images.Add(new Image
+            //{
+            //    ImageName = "Warrior",
+            //    ImageUrl = "https://i.imgur.com/gpccrg2.jpg",
+            //    Type = "Class",
+            //});
+            //this.contex.Images.Add(new Image
+            //{
+            //    ImageName = "Mage",
+            //    ImageUrl = "https://i.imgur.com/lxYtVjt.jpg",
+            //    Type = "Class",
+            //});
+            //this.contex.Images.Add(new Image
+            //{
+            //    ImageName = "Druid",
+            //    ImageUrl = "https://i.imgur.com/EiRxwuc.jpg",
+            //    Type = "Class",
+            //});
+            //this.contex.Images.Add(new Image
+            //{
+            //    ImageName = "DemonHunter",
+            //    ImageUrl = "https://i.imgur.com/ACwULHR.jpg",
+            //    Type = "Class",
+            //});
+            //this.contex.Images.Add(new Image
+            //{
+            //    ImageName = "Warlock",
+            //    ImageUrl = "https://i.imgur.com/SpvEa2r.jpg",
+            //    Type = "Class",
+            //});
             this.contex.Heroes.Add(hero);
             this.contex.SaveChanges();
         }

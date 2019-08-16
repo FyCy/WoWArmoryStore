@@ -8,7 +8,7 @@
 
             <div class="form-group">
                 @*<input type="text" name="HeroName" class="" value="" asp-for="HeroName" />*@
-
+             
                 <div class="row">
                     @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Faction)))
                     {
@@ -17,7 +17,7 @@
                             <div class="col-md-6 blue" style="border: 1px solid blue; padding: 10px">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <img style="border-radius: 50%" src="@ViewBag.AllianceLogo" height="230" width="230" value="@item" class=" float-left faction" alt="aaaa" />
+                                        <img style="border-radius: 50%" src="@ViewBag.Faction[0]" height="230" width="230" value="@item" class=" float-left faction" alt="aaaa" />
                                     </div>
                                     <div class="col-md-9">
                                         <input readonly="readonly" style="width: 100%" value="@item" name="HeroFaction" class="btn btn-primary form-group faction bl" asp-for="HeroFaction" label="@item" />
@@ -39,7 +39,7 @@
                                         </p>
                                     </div>
                                     <div class="col-md-3">
-                                        <img style="border-radius: 50%" src="@ViewBag.HordeLogo" height="230" width="230" value="@item" class="float-right faction" alt="aaaa" />
+                                        <img style="border-radius: 50%" src="@ViewBag.Faction[1]" height="230" width="230" value="@item" class="float-right faction" alt="aaaa" />
                                     </div>
                                 </div>
                             </div>
@@ -53,11 +53,11 @@
                     <div class="col-md-12">
                         @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Races.AlianceRaces)))
                         {
-                            <input readonly="readonly" style="width: 250px" value="@item" class="form-group allianceRaces" asp-for="HeroRace" label="@item" />
+                            <input readonly="readonly" style="width: 250px" value="@item" class="form-group allianceRaces"  asp-for="HeroRace" label="@item" />
                         }
                     </div>
                     <div class="col-md-12">
-                        @foreach (var classPicture in WoWArmoryStore.Common.GlobalConstants.AllianceClasses)
+                        @foreach (var classPicture in @ViewBag.AllianceRaces)
                         {
                             <div style="display: inline">
                                 <img src="@classPicture" height="250" width="250" class="allianceRaces" alt="aaaa" />
@@ -72,7 +72,7 @@
                         }
                     </div>
                     <div class="col-md-12">
-                        @foreach (var classPicture in WoWArmoryStore.Common.GlobalConstants.HordeClasses)
+                        @foreach (var classPicture in ViewBag.HordeRaces)
                         {
                             <img src="@classPicture" height="250" width="250" class="hordeRaces" alt="aaaa" />
                         }
@@ -112,7 +112,7 @@
                         }
                     </div>
                     <div class="col-md-12 centered">
-                        @foreach (var bloodElfClassPictures in WoWArmoryStore.Common.GlobalConstants.BloodElfClassesPictures)
+                        @foreach (var bloodElfClassPictures in ViewBag.bloodElf)
                         {
                             <img src="@bloodElfClassPictures" style="width: 100px" class="bloodElfClasses" alt="aaaa" />
                         }

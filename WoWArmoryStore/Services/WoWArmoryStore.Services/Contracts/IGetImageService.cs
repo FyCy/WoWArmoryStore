@@ -3,8 +3,12 @@
     using System.Collections.Generic;
     using WoWArmoryStore.Services.Models;
 
-    public interface IGetImageService
+    public interface IImageService
     {
         Dictionary<string, List<HeroCreationImageModel>> GetImages(string type);
+
+        List<string> ImageUrls(string type);
+
+        
     }
 }

@@ -4,13 +4,13 @@
 
     public enum HordeRaces
     {
-        Orc = 1,
-        Undead = 2,
-        Tauren = 3,
-        Troll = 4,
+        Pandaren = 1,
+        Tauren = 2,
+        Troll = 3,
+        Undead = 4,
         [Display(Name = "Blood Elf")]
         BloodElf = 5,
-        Goblin = 6,
-        Pandaren = 7,
+        Orc = 6,
+        Goblin = 7,
     }
 }

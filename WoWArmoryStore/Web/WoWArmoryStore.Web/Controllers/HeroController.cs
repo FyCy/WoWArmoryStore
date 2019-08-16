@@ -1,55 +1,50 @@
 ﻿namespace WoWArmoryStore.Web.Controllers
 {
-    using Microsoft.AspNetCore.Mvc;
     using System.Collections.Generic;
     using System.Linq;
+
+    using Microsoft.AspNetCore.Mvc;
     using WoWArmoryStore.Services.Contracts;
-    using WoWArmoryStore.Services.Models;
     using WoWArmoryStore.Web.ViewModels;
-    using static System.Net.Mime.MediaTypeNames;
 
     public class HeroController : BaseController
     {
         private readonly IHeroService heroService;
-        private readonly IGetImageService imageService;
+        private readonly IImageService imageService;
 
-        public HeroController(IHeroService heroService, IGetImageService imageService)
+        public HeroController(IHeroService heroService, IImageService imageService)
         {
             this.heroService = heroService;
             this.imageService = imageService;
         }
 
-        public IActionResult Faction()
+        [HttpGet]
+        public IActionResult Faction(string classType)
         {
-            var type = "HeroCreation";
             if (this.User.Identity.IsAuthenticated)
             {
-                var images = this.imageService.GetImages(type);
+                string faction = "Factions";
+                string allianceRaces = "AllianceRaces";
+                string hordeRaces = "HordeRaces";
 
-                var ass = new List<HeroCreationImageModel>();
-                var dic = new Dictionary<string, string>();
+                var factionImages = this.imageService.ImageUrls(faction);
+                var allianceRacesImages = this.imageService.ImageUrls(allianceRaces);
+                var hordeRacesImages = this.imageService.ImageUrls(hordeRaces);
 
-                foreach (var item in images)
-                {
-                    var g = item.Value;
-                    for (int i = 0; i < g.Count; i++)
-                    {
-                        var s = g[i];
-                        dic.Add(s.ImageName, s.ImageUrl);
-                    }
-                }
-                var a = dic.FirstOrDefault(x => x.Key == "AllianceLogo");
-                var h = dic.FirstOrDefault(x => x.Key == "HordeLogo");
-                ViewBag.AllianceLogo = a.Value;
-                ViewBag.HordeLogo = h.Value;
-                ViewBag.dictionaryu = dic;
+                var bloodElf = this.imageService.ImageUrls("BloodElf");
+
+                this.ViewBag.Faction = factionImages;
+                this.ViewBag.AllianceRaces = allianceRacesImages;
+                this.ViewBag.HordeRaces = hordeRacesImages;
+                this.ViewBag.BloodElf = bloodElf;
+
+
                 return this.View();
             }
             else
             {
                 return this.Redirect("/Identity/Account/Login");
             }
-
         }
 
         [HttpPost]

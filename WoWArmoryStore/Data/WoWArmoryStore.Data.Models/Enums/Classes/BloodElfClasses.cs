@@ -1,21 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
-using WoWArmory.Data.Models.Enum.Races;
-
-namespace WoWArmory.Data.Models.Enum.Classes
+﻿namespace WoWArmory.Data.Models.Enum.Classes
 {
+    using System.ComponentModel.DataAnnotations;
+
     public enum BloodElfClasses
     {
-        [Display(Name = "Death Knight")]
-        DeathKnight = 1,
-        [Display(Name = "Demon Hunter")]
-        DemonHunter = 2,
+        Warrior = 1,
+        Paladin = 2,
         Hunter = 3,
-        Mage = 4,
-        Monk = 5,
-        Paladin = 6,
-        Priest = 7,
-        Rogue = 8,
-        Warlock = 9,
-        Warrior = 10,
+        Rogue = 4,
+        Priest = 5,
+        [Display(Name = "Death Knight")]
+        DeathKnight = 6,
+        Mage = 7,
+        Warlock = 8,
+        Monk = 9,
+        [Display(Name = "Demon Hunter")]
+        DemonHunter = 10,
     }
 }
