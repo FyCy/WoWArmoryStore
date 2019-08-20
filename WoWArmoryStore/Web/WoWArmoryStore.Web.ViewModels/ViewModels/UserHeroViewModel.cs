@@ -1,20 +1,17 @@
-﻿namespace WoWArmoryStore.Data.Models
+﻿namespace WoWArmoryStore.Web.ViewModels.ViewModels
 {
-    using System;
     using System.Collections.Generic;
-
     using WoWArmory.Data.Models.Enum;
     using WoWArmory.Data.Models.Enum.Classes;
-    using WoWArmoryStore.Data.Common.Models;
+    using WoWArmoryStore.Data.Models;
+    using WoWArmoryStore.Services.Mapping;
 
-    public class Hero : BaseModel<int>, IDeletableEntity
+    public class UserHeroViewModel : IMapFrom<Hero>
     {
-        public Hero()
+        public UserHeroViewModel()
         {
             this.HeroItems = new HashSet<Product>();
         }
-
-        public string WoWUserName { get; set; }
 
         public string HeroName { get; set; }
 
@@ -26,8 +23,5 @@
 
         public ICollection<Product> HeroItems { get; set; }
 
-        public bool IsDeleted { get; set; }
-
-        public DateTime? DeletedOn { get; set; }
     }
 }

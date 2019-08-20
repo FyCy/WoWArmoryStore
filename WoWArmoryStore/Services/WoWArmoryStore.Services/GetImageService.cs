@@ -8,10 +8,10 @@
     using WoWArmoryStore.Services.Models;
     using WoWArmoryStore.Services.Mapping;
     using WoWArmory.Data.Models.Enum.Classes;
+
     using System;
+
     using WoWArmory.Data.Models.Enum;
-    using System.Reflection;
-    using WoWArmory.Data.Models.Enum.Classes;
 
     public class GetImageService : IImageService
     {

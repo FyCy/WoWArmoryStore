@@ -30,9 +30,9 @@
 
             //this.contex.Images.Add(new Image
             //{
-            //    ImageName = "Monk",
-            //    ImageUrl = "https://i.imgur.com/0POPZ8e.jpg",
-            //    Type = "Class",
+            //    ImageName = "MistOfPadaria",
+            //    ImageUrl = "https://i.imgur.com/qyreQ81.jpg",
+            //    Type = "CarouselImages",
             //});
 
             //this.contex.Images.Add(new Image
