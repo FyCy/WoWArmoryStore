@@ -4,13 +4,13 @@
 
     public enum AlianceRaces
     {
-        Worgen = 1,
+        Human = 1,
+        Dwarf = 2,
         [Display(Name = "Night Elf")]
-        NightElf = 2,
-        Pandaren = 3,
-        Draenei = 4,
-        Gnome = 5,
-        Dwarf = 6,
-        Human = 7,
+        NightElf = 3,
+        Gnome = 4,
+        Draenei = 5,
+        Worgen = 6,
+        Pandaren = 7,
     }
 }

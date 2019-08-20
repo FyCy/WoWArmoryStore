@@ -40,7 +40,6 @@ let faction = "";
 let factionClasses = "";
 let heroClass = "";
 let heroName = "";
-let chosenRaces = "";
 
 
 $(".LastStep").click(function () {
@@ -287,14 +286,6 @@ $(".allianceRaces").click(function () {
         $(".humanClasses").hide();
         $(".heroName").hide();
     }
-    chosenRaces = $(this).val();
-    $.ajax({
-        url: "/Hero/Faction",
-        data: {
-            classType: chosenRaces
-        },
-        method: "GET",
-    })
     factionClasses = $(this).val();
 });
 //Factions // NAPRAVI GO NA FINKICI[ BE!!!!]
@@ -339,20 +330,6 @@ $(".faction").click(function () {
     }
     $(".heroName").hide();
 });
-
-//$(".chosenRace").click(function () {
-//    chosenRaces = $(".chosenRace").val();
-//    $ajax({
-//        url: "/Hero/HeroCreation",
-//        data: {
-//            chosenRace
-//        },
-//        method: "GET",
-
-//    })
-//})
-
-
 $("#kur").click(function () {
     heroName = $(".heroName").val();
     $.ajax({

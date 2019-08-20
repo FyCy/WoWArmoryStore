@@ -22,5 +22,9 @@
   <ItemGroup>
     <ProjectReference Include="..\WoWArmoryStore.Data.Common\WoWArmoryStore.Data.Common.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Enums\" />
+  </ItemGroup>
   
 </Project>

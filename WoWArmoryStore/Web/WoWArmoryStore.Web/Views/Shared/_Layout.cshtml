@@ -5,21 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@this.ViewData["Title"] - WoWArmoryStore</title>
 
-
     <environment names="Development">
         <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" asp-append-version="true" />
         <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
-        <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
     </environment>
-
     <environment names="Staging,Production">
         <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true" />
         <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
     </environment>
 </head>
 <body>
@@ -61,28 +53,40 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
             <div class="container-fluid">
 
-                <a class="navbar-brand" href="/">
-                    <img src="https://i.imgur.com/DyIjRli.png" class="img-responsive" style="height: 50px" width="85" alt="Logo">
-                    <span class="text-left text-white" style="width: 50px">Wow Armory Store</span>
-                </a>
+                <a class="navbar-brand" href=""><img src="https://i.imgur.com/DyIjRli.png" class="img-responsive" style="height: 55px" width="115" alt="Logo"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                @*<div class="col-md-3">
+                <div class="col-md-2">
                     <h2>
-                        <a href="/" class="text-left text-white" style="height: 20px">Wow Armory Store</a>
+                        <text  class="text-left text-white"  style="height: 20px">Wow Armory Store</text>
                     </h2>
-                </div>*@
+                    @*<label class="nav-link text-white centered" style="height: 15px">Armory</label>
+                        <label class="nav-link text-white centered" style="height: 15px ">Store</label>*@
+                </div>
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item ml-2">
+<<<<<<< HEAD
                             <a class="nav-link text-white" asp-area="" asp-controller="UserHeroes" asp-action="UserHeroes">My Heroes</a>
+=======
+                            <a class="nav-link text-white " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item ml-2">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
+                        </li>
+                        <li class="nav-item ml-2">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item ml-2">
+                            <a class="nav-link text-white" asp-area="" asp-controller="UserHeroes" asp-action="GetUserHeroes">My Heroes</a>
+>>>>>>> parent of 1c8b8f4... New font. Added navbar button for settings. Images are in database.
                         </li>
                         <li class="nav-item ml-2">
                             <a class="nav-link text-white" asp-area="" asp-controller="Hero" asp-action="Faction">NewHero</a>
                         </li>
-                        <li>
-
+                        <li class="nav-item ml-2">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
                 </div>

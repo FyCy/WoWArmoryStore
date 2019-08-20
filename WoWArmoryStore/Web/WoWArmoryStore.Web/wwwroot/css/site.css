@@ -129,16 +129,3 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
-
-/*Custom Font */
-
-@font-face {
-    font-family: myFirstFont;
-    src: url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
-}
-
-div {
-    font-family: 'Indie Flower', cursive;
-}
-
-/*nav bar*/

@@ -102,8 +102,12 @@
             services.AddTransient<ISettingsService, SettingsService>();
 
             services.AddTransient<IHeroService, HeroService>();
+<<<<<<< HEAD
             services.AddTransient<IImageService, GetImageService>();
             services.AddTransient<IUserHeroesService, UserHeroesService>();
+=======
+            services.AddTransient<IGetImageService, GetImageService>();
+>>>>>>> parent of 1c8b8f4... New font. Added navbar button for settings. Images are in database.
         }
 
        
