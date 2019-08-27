@@ -1,0 +1,402 @@
+﻿@model WoWArmoryStore.Web.ViewModels.CreateHeroInputModel;
+@{
+    Dictionary<string, string> classDictionary = ViewBag.bloodElf as Dictionary<string, string>;
+    ViewData["Title"] = "HeroCreation";
+}
+<div class="row">
+    <div class="col-md-12">
+        <form asp-controller="Hero" asp-action="HeroCreation">
+
+            <div class="form-group">
+                @*<input type="text" name="HeroName" class="" value="" asp-for="HeroName" />*@
+
+                <div class="row">
+                    @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Faction)))
+                    {
+                        @if (@item.ToString() == "Alliance")
+                        {
+                            <div class="col-md-6 blue" style="border: 1px solid blue; padding: 10px">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img style="border-radius: 50%" src="@ViewBag.Faction[0]" height="230" width="230" value="@item" class=" float-left faction" alt="aaaa" />
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input readonly="readonly" style="width: 100%" value="@item" name="HeroFaction" class="btn btn-primary form-group faction bl" asp-for="HeroFaction" label="@item" />
+                                        <p>
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        @if (@item.ToString() == "Horde")
+                        {
+                            <div class="col-md-6 red" style="border: 1px solid red; padding: 10px">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <input readonly="readonly" style="width: 100%" value="@item" name="HeroFaction" class="btn btn-danger form-group faction" asp-for="HeroFaction" label="@item" />
+                                        <p>
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img style="border-radius: 50%" src="@ViewBag.Faction[1]" height="230" width="230" value="@item" class="float-right faction" alt="aaaa" />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+
+                @*Races*@
+                <div class="row">
+                    <div style="text-align: center; margin-bottom: 20px" class="col-md-12 display-3 allianceRaces">Choose your race</div>
+                    <div class="col-md-12">
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Races.AlianceRaces)))
+                        {
+                            <input readonly="readonly" style="width: 250px" value="@item" class="form-group allianceRaces" asp-for="HeroRace" label="@item" />
+                        }
+                    </div>
+                    <div class="col-md-12">
+                        @foreach (var classPicture in @ViewBag.AllianceRaces)
+                        {
+                            <div style="display: inline">
+                                <img src="@classPicture" height="250" width="250" class="allianceRaces" alt="aaaa" />
+                            </div>
+                        }
+                    </div>
+                    <div style="text-align: center; margin-bottom: 20px" class="col-md-12 display-3 hordeRaces">Choose your race</div>
+                    <div class="col-md-12">
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Races.HordeRaces)))
+                        {
+                            <input readonly="readonly" value="@item" name="HeroRace" style="width: 250px" class="hordeRaces" asp-for="HeroRace" label="@item" />
+                        }
+                    </div>
+                    <div class="col-md-12">
+                        @foreach (var classPicture in ViewBag.HordeRaces)
+                        {
+                            <img src="@classPicture" height="250" width="250" class="hordeRaces" alt="aaaa" />
+                        }
+                    </div>
+                </div>
+
+
+                @*Classes*@
+
+                @* ---------------------------- HORDE ---------------------------- *@
+                <div class="row" style="margin-top: 20px">
+                    @*<div style="text-align: center; margin-bottom: 20px" class="col-md-12 display-3 LastStep">Choose your class</div>*@
+                    @*Pandaren *@
+
+                    <div class="col-md-12 centered">
+
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.PandarenClasses)))
+                        {
+                            <input readonly="readonly" style="width: 100px" value="@item" name="HeroClass" class="pandarenClasses LastStep" asp-for="HeroClass" label="@item" />
+
+                        }
+                    </div>
+                    <div class="col-md-12 centered">
+
+                        @foreach (var pandarenClassPictures in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.PandarenClasses)))
+                        {
+                            foreach (var item in classDictionary)
+                            {
+                                if (pandarenClassPictures.ToString() == item.Key)
+                                {
+                                    <img src="@item.Value" height="100" width="100" class="pandarenClasses" alt="aaaa" />
+                                }
+                            }
+                        }
+                    </div>
+
+                    @*BloodElf *@
+                    <div class="col-md-12 centered">
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.BloodElfClasses)))
+                        {
+                            <input readonly="readonly" value="@item" style="width: 100px" class="bloodElfClasses LastStep" name="HeroClass" asp-for="HeroClass" label="@item" />
+
+                        }
+                    </div>
+                    <div class="col-md-12 centered">
+                        @foreach (var bloodElfClassPictures in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.BloodElfClasses)))
+                        {
+                            foreach (var item in classDictionary)
+                            {
+                                if (bloodElfClassPictures.ToString() == item.Key)
+                                {
+                                    <img src="@item.Value" style="width: 100px" class="bloodElfClasses" alt="aaaa" />
+                                }
+                            }
+                        }
+                    </div>
+
+
+
+                    @*Orc *@
+                    <div class="col-md-12 centered">
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.OrcClasses)))
+                        {
+                            <input readonly="readonly" value="@item" style="width: 100px" class="orcClasses LastStep" asp-for="HeroClass" label="@item" />
+
+                        }
+                    </div>
+
+                    <div class="col-md-12 centered">
+                        @foreach (var orcClassPictures in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.OrcClasses)))
+                        {
+                            foreach (var item in classDictionary)
+                            {
+                                if (orcClassPictures.ToString() == item.Key)
+                                {
+                                    <img src="@item.Value" height="100" width="100" class="orcClasses " alt="aaaa" />
+
+                                }
+                            }
+                        }
+                    </div>
+
+
+
+                    @*@*Undaed *@
+                    <div class="col-md-12 centered">
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.UndeadClasses)))
+                        {
+                            <input readonly="readonly" value="@item" style="width: 100px" class="undeadClassses LastStep" asp-for="HeroClass" label="@item" />
+
+                        }
+                    </div>
+                    <div class="col-md-12 centered">
+                        @foreach (var undeadClassPictures in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.UndeadClasses)))
+                        {
+                            foreach (var item in classDictionary)
+                            {
+                                if (undeadClassPictures.ToString() == item.Key)
+                                {
+
+                                    <img src="@item.Value" height="100" width="100" class="undeadClassses" type="button" alt="aaaa" />
+                                }
+                            }
+                        }
+                    </div>
+
+
+
+                    @*Tauren *@
+                    <div class="col-md-12 centered">
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.TaurenClasses)))
+                        {
+                            <input readonly="readonly" value="@item" class="taurenClasses LastStep" style="width: 100px" asp-for="HeroClass" label="@item" />
+
+                        }
+                    </div>
+                    <div class="col-md-12 centered">
+                        @foreach (var taurenClassPictures in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.TaurenClasses)))
+                        {
+                            foreach (var item in classDictionary)
+                            {
+                                if (taurenClassPictures.ToString() == item.Key)
+                                {
+                                    <img src="@item.Value" height="100" width="100" class="taurenClasses " type="button" alt="aaaa" />
+                                }
+                            }
+
+                        }
+                    </div>
+
+                    @*Troll *@
+                    <div class="col-md-12 centered">
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.TrollClasses)))
+                        {
+                            <input readonly="readonly" value="@item" class="trollClasses LastStep" style="width: 100px" asp-for="HeroClass" label="@item" />
+
+                        }
+                    </div>
+                    <div class="col-md-12 centered">
+                        @foreach (var trollClassPictures in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.TrollClasses)))
+                        {
+                            foreach (var item in classDictionary)
+                            {
+                                if (trollClassPictures.ToString() == item.Key)
+                                {
+                                    <img src="@item.Value" height="100" width="100" class="trollClasses " type="button" alt="aaaa" />
+                                }
+                            }
+
+
+                        }
+                    </div>
+
+
+
+                    @*Goblin *@
+                    <div class="col-md-12 centered">
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.GoblinClasses)))
+                        {
+                            <input readonly="readonly" style="width: 100px" value="@item" class="goblinClasses LastStep" asp-for="HeroClass" label="@item" />
+
+                        }
+                    </div>
+
+                    <div class="col-md-12 centered">
+                        @foreach (var goblinClassPictures in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.GoblinClasses)))
+                        {
+                            foreach (var item in classDictionary)
+                            {
+                                if (goblinClassPictures.ToString() == item.Key)
+                                {
+
+                                    <img src="@item.Value" height="100" width="100" class="goblinClasses " type="button" alt="aaaa" />
+                                }
+                            }
+                        }
+                    </div>
+                    @* ---------------------------- ALLIANCE ---------------------------- *@
+                    @*Human *@
+                    <div class="col-md-12 centered">
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.HumanClasses)))
+                        {
+                            <input readonly="readonly" style="width: 100px" value="@item" class="humanClasses LastStep" asp-for="HeroClass" label="@item" />
+
+                        }
+                    </div>
+                    <div class="col-md-12 centered">
+                        @foreach (var humanClassPictures in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.HumanClasses)))
+                        {
+                            foreach (var item in classDictionary)
+                            {
+                                if (humanClassPictures.ToString() == item.Key)
+                                {
+                                    <img src="@item.Value" height="100" width="100" class="humanClasses " type="button" alt="aaaa" />
+                                }
+                            }
+                        }
+                    </div>
+
+
+                    @*Dwarf *@
+                    <div class="col-md-12 centered">
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.DwarfClasses)))
+                        {
+                            <input readonly="readonly" style="width: 100px" value="@item" class="dwarfClasses LastStep" asp-for="HeroClass" label="@item" />
+
+                        }
+                    </div>
+                    <div class="col-md-12 centered">
+                        @foreach (var dwarfClassPictures in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.DwarfClasses)))
+                        {
+                            foreach (var item in classDictionary)
+                            {
+                                if (dwarfClassPictures.ToString() == item.Key)
+                                {
+                                    <img src="@item.Value" height="100" width="100" class="dwarfClasses " type="button" alt="aaaa" />
+                                }
+                            }
+
+                        }
+                    </div>
+
+
+                    @*Night Elf *@
+                    <div class="col-md-12 centered">
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.NightElfClasses)))
+                        {
+                            <input readonly="readonly" style="width: 100px" value="@item" class="nightElfClasses LastStep" asp-for="HeroClass" label="@item" />
+
+                        }
+                    </div>
+                    <div class="col-md-12 centered">
+                        @foreach (var nightElfClassPictures in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.NightElfClasses)))
+                        {
+                            foreach (var item in classDictionary)
+                            {
+                                if (nightElfClassPictures.ToString() == item.Key)
+                                {
+                                    <img src="@item.Value" height="100" width="100" class="nightElfClasses " type="button" alt="aaaa" />
+                                }
+                            }
+                        }
+                    </div>
+
+
+
+                    @*Gnome *@
+                    <div class="col-md-12 centered">
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.GnomeClasses)))
+                        {
+                            <input readonly="readonly" style="width: 100px" value="@item" class="gnomeClasses LastStep" asp-for="HeroClass" label="@item" />
+
+                        }
+                    </div>
+                    <div class="col-md-12 centered">
+                        @foreach (var gnomeClassPictures in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.GnomeClasses)))
+                        {
+                            foreach (var item in classDictionary)
+                            {
+                                if (gnomeClassPictures.ToString() == item.Key)
+                                {
+                                    <img src="@item.Value" height="100" width="100" class="gnomeClasses " type="button" alt="aaaa" />
+                                }
+                            }
+
+
+                        }
+                    </div>
+
+
+
+                    @*Draenei *@
+                    <div class="col-md-12 centered">
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.DraeneiClasses)))
+                        {
+                            <input readonly="readonly" style="width: 100px" value="@item" class="draeneiClasses LastStep" asp-for="HeroClass" label="@item" />
+                        }
+                    </div>
+                    <div class="col-md-12 centered">
+                        @foreach (var draeneiClassPictures in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.DraeneiClasses)))
+                        {
+                            foreach (var item in classDictionary)
+                            {
+                                if (draeneiClassPictures.ToString() == item.Key)
+                                {
+                                    <img src="@item.Value" height="100" width="100" class="draeneiClasses " type="button" alt="aaaa" />
+                                }
+                            }
+                        }
+                    </div>
+                    @*Worgen *@
+                    <div class="col-md-12 centered">
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.WorgenClasses)))
+                        {
+                            <input readonly="readonly" style="width: 100px" value="@item" name="HeroClass" class="form-group worgenClasses LastStep" asp-for="HeroClass" label="@item" />
+                        }
+                    </div>
+                    <div class="col-md-12 centered">
+                        @foreach (var worgenClassPictures in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Classes.WorgenClasses)))
+                        {
+                            foreach (var item in classDictionary)
+                            {
+                                if (worgenClassPictures.ToString() == item.Key)
+                                {
+                                    <img src="@item.Value" height="100" width="100" class="worgenClasses " type="button" alt="aaaa" />
+                                }
+                            }
+
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 centered">
+                <input type="text" name="HeroName" class="heroName" asp-for="HeroName" />
+            </div>
+
+
+            <div class="heroName col-md-12 centered">
+                <button id="kur" class="submit" type="button">s</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+<link href="~/js/site.js" rel="script" />
