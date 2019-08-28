@@ -2,6 +2,7 @@
 {
     using Microsoft.AspNetCore.Mvc;
     using WoWArmoryStore.Services.Contracts;
+    using WoWArmoryStore.Web.ViewModels.ViewModels;
 
     public class UserHeroesController : Controller
     {
@@ -18,6 +19,15 @@
             var heroes = this.userHeroesService.UsersHeroes(username);
             this.ViewBag.Heroes = heroes;
             return this.View();
+        }
+
+        public JsonResult DeleteHero(UserHeroViewModel hero)
+        {
+            var currentUser = this.User.Identity.Name;
+
+            this.userHeroesService.DeleteHero(currentUser, hero.HeroName);
+
+            return this.Json(true);
         }
     }
 }

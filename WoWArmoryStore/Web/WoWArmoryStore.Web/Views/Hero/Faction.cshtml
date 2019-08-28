@@ -1,6 +1,6 @@
 ﻿@model WoWArmoryStore.Web.ViewModels.CreateHeroInputModel;
 @{
-    Dictionary<string, string> classDictionary = ViewBag.bloodElf as Dictionary<string, string>;
+    Dictionary<string, string> classDictionary = ViewBag.classes as Dictionary<string, string>;
     ViewData["Title"] = "HeroCreation";
 }
 <div class="row">
@@ -393,7 +393,7 @@
 
 
             <div class="heroName col-md-12 centered">
-                <button id="kur" class="submit" type="button">s</button>
+                <button id="submitButton" class="submit" type="button">Create your Hero NOW!</button>
             </div>
 
         </form>

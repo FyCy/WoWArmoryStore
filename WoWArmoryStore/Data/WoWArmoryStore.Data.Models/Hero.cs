@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     using WoWArmory.Data.Models.Enum;
     using WoWArmory.Data.Models.Enum.Classes;
@@ -14,14 +15,19 @@
             this.HeroItems = new HashSet<Product>();
         }
 
+        [Required]
         public string WoWUserName { get; set; }
 
+        [Required]
         public string HeroName { get; set; }
 
+        [Required]
         public Faction HeroFaction { get; set; }
 
+        [Required]
         public Race HeroRace { get; set; }
 
+        [Required]
         public Class HeroClass { get; set; }
 
         public ICollection<Product> HeroItems { get; set; }

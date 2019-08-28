@@ -13,6 +13,7 @@
         private const string FactionImages = "Factions";
         private const string AllianceRaces = "AllianceRaces";
         private const string HordeRaces = "HordeRaces";
+        private const string Classes = "Class";
 
         private readonly IHeroService heroService;
         private readonly IImageService imageService;
@@ -28,20 +29,15 @@
         {
             if (this.User.Identity.IsAuthenticated)
             {
-
-                var bloodElf = this.imageService.GetClassImageUrls("Class");
-                this.ViewBag.BloodElf = bloodElf;
-
-
+                var classes = this.imageService.GetClassImageUrls(Classes);
                 var factionImages = this.imageService.GetImageUrls(FactionImages);
                 var allianceRacesImages = this.imageService.GetImageUrls(AllianceRaces);
                 var hordeRacesImages = this.imageService.GetImageUrls(HordeRaces);
 
-
+                this.ViewBag.Classes = classes;
                 this.ViewBag.Faction = factionImages;
                 this.ViewBag.AllianceRaces = allianceRacesImages;
                 this.ViewBag.HordeRaces = hordeRacesImages;
-
 
                 return this.View();
             }
@@ -51,14 +47,13 @@
             }
         }
 
-        [HttpPost]
-        public IActionResult HeroCreation(CreateHeroInputModel model)
+        public JsonResult HeroCreation(CreateHeroInputModel model)
         {
             var currentUser = this.User.Identity.Name;
 
             this.heroService.CreateNewHero(model, currentUser.ToString());
 
-            return this.View("/");
+            return this.Json(true);
         }
     }
 }

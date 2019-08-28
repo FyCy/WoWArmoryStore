@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     using WoWArmoryStore.Data.Common.Models;
 
@@ -12,8 +13,10 @@
             this.Products = new List<Product>();
         }
 
+        [Required]
         public string WoWUserName { get; set; }
 
+        [Required]
         public WoWArmoryUser WoWArmoryUser { get; set; }
 
         public ICollection<Product> Products { get; set; }

@@ -6,5 +6,7 @@
     public interface IUserHeroesService
     {
         ICollection<UserHeroViewModel> UsersHeroes(string userName);
+
+        void DeleteHero(string userName, string heroNam);
     }
 }

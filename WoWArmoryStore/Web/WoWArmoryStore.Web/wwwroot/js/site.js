@@ -2,6 +2,13 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+let faction = "";
+let factionClasses = "";
+let heroClass = "";
+let heroName = "";
+let heroToDeleteName = "";
+
+
 $(".allianceRaces").hide();
 $(".hordeRaces").hide();
 $(".pandarenClasses").hide();
@@ -36,11 +43,6 @@ function hiding() {
     $(".heroName").hide();
 }
 
-let faction = "";
-let factionClasses = "";
-let heroClass = "";
-let heroName = "";
-let chosenRaces = "";
 
 
 $(".LastStep").click(function () {
@@ -289,14 +291,6 @@ $(".allianceRaces").click(function () {
         $(".humanClasses").hide();
         $(".heroName").hide();
     }
-    chosenRaces = $(this).val();
-    $.ajax({
-        url: "/Hero/Faction",
-        data: {
-            classType: chosenRaces
-        },
-        method: "GET",
-    })
     factionClasses = $(this).val();
 });
 //Factions // NAPRAVI GO NA FINKICI[ BE!!!!]
@@ -341,33 +335,72 @@ $(".faction").click(function () {
     }
     $(".heroName").hide();
 });
+//AJAX REQUESTS
 
-//$(".chosenRace").click(function () {
-//    chosenRaces = $(".chosenRace").val();
-//    $ajax({
-//        url: "/Hero/HeroCreation",
-//        data: {
-//            chosenRace
-//        },
-//        method: "GET",
-
-//    })
-//})
-
-
-$("#kur").click(function () {
+$("#submitButton").click(function () {
     heroName = $(".heroName").val();
     $.ajax({
         url: "/Hero/HeroCreation",
         data: {
             HeroName: heroName,
             HeroFaction: faction,
+            HeroRace: factionClasses,
             HeroClass: heroClass,
-            HeroRace: factionClasses
         },
         method: "POST",
-        success: "success",
-        //dataType: "json",
-        //contentType: "application/json",
+        success: function (response) {
+            if (response == true) {
+                alert("You will now be redirected.");
+                window.location = "/";
+            }
+        }
     })
 })
+
+
+
+
+$("#heroDelete").click(function () {
+    heroToDelete = $("#heroDelete").val();
+    $.ajax({
+        url: "/UserHeroes/DeleteHero",
+        data: {
+            HeroName: heroToDelete.HeroName,
+            HeroFaction: heroToDelete.HeroFaction,
+            HeroRace: heroToDelete.HeroRace,
+            HeroClass: heroToDelete.HeroClass,
+        },
+        method: "POST",
+        success: function (response) {
+            if (response == true) {
+                alert("You will now be redirected.");
+                window.location = "/";
+            }
+        }
+    })
+})
+
+
+$(document).ready(function () {
+    // Activate tooltip
+    $('[data-toggle="tooltip"]').tooltip();
+
+    // Select/Deselect checkboxes
+    var checkbox = $('table tbody input[type="checkbox"]');
+    $("#selectAll").click(function () {
+        if (this.checked) {
+            checkbox.each(function () {
+                this.checked = true;
+            });
+        } else {
+            checkbox.each(function () {
+                this.checked = false;
+            });
+        }
+    });
+    checkbox.click(function () {
+        if (!this.checked) {
+            $("#selectAll").prop("checked", false);
+        }
+    });
+});

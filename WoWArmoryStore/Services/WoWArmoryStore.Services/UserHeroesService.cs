@@ -2,10 +2,11 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+
     using WoWArmoryStore.Data;
     using WoWArmoryStore.Services.Contracts;
-    using WoWArmoryStore.Web.ViewModels.ViewModels;
     using WoWArmoryStore.Services.Mapping;
+    using WoWArmoryStore.Web.ViewModels.ViewModels;
 
     public class UserHeroesService : IUserHeroesService
     {
@@ -14,6 +15,13 @@
         public UserHeroesService(ApplicationDbContext dbContext)
         {
             this.db = dbContext;
+        }
+
+        public void DeleteHero(string userName, string heroName)
+        {
+            var heroToDelete = this.db.Heroes.FirstOrDefault(x => x.WoWUserName == userName && x.HeroName == heroName);
+            this.db.Heroes.Remove(heroToDelete);
+            this.db.SaveChanges();
         }
 
         public ICollection<UserHeroViewModel> UsersHeroes(string userName)
@@ -25,3 +33,4 @@
         }
     }
 }
+
