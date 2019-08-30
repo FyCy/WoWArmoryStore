@@ -19,17 +19,11 @@
         [Required]
         public decimal Price { get; set; }
 
-        [Required]
         public bool Buyable { get; set; }
-
-        [Required]
-        public int ItemLevel { get; set; }
 
         [Required]
         public Materials ArmorMaterial { get; set; }
 
-        [Required]
-        public int RequiredLevel { get; set; }
 
         [Required]
         public ItemTypes ItemSlots { get; set; }

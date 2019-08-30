@@ -105,6 +105,7 @@
             services.AddTransient<IImageService, GetImageService>();
             services.AddTransient<IUserHeroesService, UserHeroesService>();
             services.AddTransient<IAdministrationService, AdministrationService>();
+            services.AddTransient<IItemService, ItemService>();
         }
 
        

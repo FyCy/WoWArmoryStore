@@ -52,7 +52,7 @@
         public JsonResult HeroCreation(CreateHeroInputModel model)
         {
             var currentUser = this.User.Identity.Name;
-            var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = this.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             this.heroService.CreateNewHero(model, currentUser.ToString(),  userId);
 

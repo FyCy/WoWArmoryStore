@@ -293,8 +293,6 @@ namespace WoWArmoryStore.Data.Migrations
 
                     b.Property<bool>("IsDeleted");
 
-                    b.Property<int>("ItemLevel");
-
                     b.Property<string>("ItemName")
                         .IsRequired();
 
@@ -305,8 +303,6 @@ namespace WoWArmoryStore.Data.Migrations
                     b.Property<int?>("OrderId");
 
                     b.Property<decimal>("Price");
-
-                    b.Property<int>("RequiredLevel");
 
                     b.HasKey("Id");
 

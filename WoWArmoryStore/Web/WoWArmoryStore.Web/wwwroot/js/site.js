@@ -380,27 +380,47 @@ $("#heroDelete").click(function () {
     })
 })
 
-
-$(document).ready(function () {
-    // Activate tooltip
-    $('[data-toggle="tooltip"]').tooltip();
-
-    // Select/Deselect checkboxes
-    var checkbox = $('table tbody input[type="checkbox"]');
-    $("#selectAll").click(function () {
-        if (this.checked) {
-            checkbox.each(function () {
-                this.checked = true;
-            });
-        } else {
-            checkbox.each(function () {
-                this.checked = false;
-            });
+//ItemCreation
+let itemType = "";
+$(".ItemType").click(function () {
+    itemType = $(this).val();
+})
+$("#submitItemCreation").click(function () {
+  
+    $.ajax({
+        url: "/AddItem",
+        data: {
+            itemType 
+        },
+        method: "POST",
+        success: function (response) {
+            if (response == true) {
+                alert("You will now be redirected.");
+                window.location = "/";
+            }
         }
-    });
-    checkbox.click(function () {
-        if (!this.checked) {
-            $("#selectAll").prop("checked", false);
-        }
-    });
-});
+    })
+})
+//$(document).ready(function () {
+//    // Activate tooltip
+//    $('[data-toggle="tooltip"]').tooltip();
+
+//    // Select/Deselect checkboxes
+//    var checkbox = $('table tbody input[type="checkbox"]');
+//    $("#selectAll").click(function () {
+//        if (this.checked) {
+//            checkbox.each(function () {
+//                this.checked = true;
+//            });
+//        } else {
+//            checkbox.each(function () {
+//                this.checked = false;
+//            });
+//        }
+//    });
+//    checkbox.click(function () {
+//        if (!this.checked) {
+//            $("#selectAll").prop("checked", false);
+//        }
+//    });
+//});

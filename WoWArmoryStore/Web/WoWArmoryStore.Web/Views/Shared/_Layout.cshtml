@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using WoWArmoryStore.Common
+@using WoWArmoryStore.Data.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<WoWArmoryUser> SignInManager
+@inject UserManager<WoWArmoryUser> UserManager
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -28,7 +33,7 @@
             <div class="container-fluid">
 
                 <a class="navbar-brand" href="/">
-                    <img src="https://i.imgur.com/DyIjRli.png" class="img-responsive" style="height: 50px" width="85" alt="Logo">
+                    <img src="https://i.imgur.com/DyIjRli.png" class="img-responsive" style="height: 50px" width="60" alt="Logo">
                     <span class="text-left text-white" style="width: 50px">Wow Armory Store</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,14 +46,17 @@
                     </div>*@
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item ml-2">
-                            <a class="nav-link text-white" asp-area="" asp-controller="UserHeroes" asp-action="UserHeroes">My Heroes</a>
-                        </li>
+                        @if (this.SignInManager.IsSignedIn(this.User))
+                        {
+                            <li>
+                                <a class="nav-link text-white" asp-area="" asp-controller="UserHeroes" asp-action="UserHeroes">My Heroes</a>
+                            </li>
+                        }
                         <li class="nav-item ml-2">
                             <a class="nav-link text-white" asp-area="" asp-controller="Hero" asp-action="Faction">NewHero</a>
                         </li>
                         <li>
-
+                            <a class="nav-link text-white" asp-area="" asp-controller="Shop" asp-action="ShopIndex">Items</a>
                         </li>
                     </ul>
                 </div>
@@ -59,28 +67,35 @@
 
     <div class="container-fluid" style="padding: 0">
         <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3" style="flex: 1">
             @this.RenderBody()
         </main>
     </div>
 
-    @*<footer class="border-top footer text-muted">
-        <div>
-            <section id="lab_social_icon_footer" style="height: 75px">
-                <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-                <div class="container">
+	@*<div class="wrapper">
+		<footer style="margin-top: 15px" class="page-footer">
+			<div>
+				<p id="gray" align="center">&copy; 2018 - captain-radko. All rights reserved.</p>
+			</div>
+		</footer>
+	</div>*@
 
-                    <div class="text-center center-block">
-                        <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-                        <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-                        <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-                        <a href="mailto:#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+    @*<footer class="fixed-footer">
+            <div>
+                <section id="lab_social_icon_footer" style="height: 75px">
+                    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+                    <div class="container">
+
+                        <div class="text-center center-block">
+                            <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                            <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                            <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+                            <a href="mailto:#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                        </div>
                     </div>
-                </div>
-            </section>
-        </div>
-
-    </footer>*@
+                </section>
+            </div>
+        </footer>*@
 
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>

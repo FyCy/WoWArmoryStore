@@ -1,13 +1,9 @@
 ﻿namespace WoWArmoryStore.Services
 {
-    using System.Linq;
     using WoWArmoryStore.Data;
     using WoWArmoryStore.Data.Models;
     using WoWArmoryStore.Services.Contracts;
     using WoWArmoryStore.Web.ViewModels;
-    using WoWArmoryStore.Services.Mapping;
-    using Microsoft.AspNetCore.Identity;
-    using System.Net.Http;
 
     public class HeroService : IHeroService
     {
@@ -30,7 +26,7 @@
                 WoWArmoryUserId = userId,
             };
             this.contex.Heroes.Add(hero);
-            this.contex.SaveChanges();
+            this.contex.SaveChangesAsync();
         }
     }
 }
