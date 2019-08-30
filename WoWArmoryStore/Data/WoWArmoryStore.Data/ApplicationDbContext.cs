@@ -108,6 +108,12 @@
                 .HasForeignKey(e => e.UserId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<WoWArmoryUser>()
+                .HasMany(x => x.MyHeroes)
+                .WithOne(r => r.WoWArmoryUser)
+                .HasForeignKey(s => s.WoWArmoryUserId)
+                .IsRequired();
         }
 
         private static void SetIsDeletedQueryFilter<T>(ModelBuilder builder)

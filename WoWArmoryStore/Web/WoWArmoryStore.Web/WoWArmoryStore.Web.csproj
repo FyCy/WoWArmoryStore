@@ -36,7 +36,12 @@
     <ProjectReference Include="..\..\Services\WoWArmoryStore.Services.Mapping\WoWArmoryStore.Services.Mapping.csproj" />
     <ProjectReference Include="..\..\Services\WoWArmoryStore.Services.Messaging\WoWArmoryStore.Services.Messaging.csproj" />
     <ProjectReference Include="..\..\Services\WoWArmoryStore.Services\WoWArmoryStore.Services.csproj" />
+    <ProjectReference Include="..\..\WoWArmoryStore.Common\WoWArmoryStore.Common.csproj" />
     <ProjectReference Include="..\WoWArmoryStore.Web.Infrastructure\WoWArmoryStore.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\WoWArmoryStore.Web.ViewModels\WoWArmoryStore.Web.ViewModels.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Administration\ViewModels\Admin\" />
   </ItemGroup>
 </Project>

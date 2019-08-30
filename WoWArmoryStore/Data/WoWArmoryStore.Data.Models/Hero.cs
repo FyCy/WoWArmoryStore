@@ -15,9 +15,11 @@
             this.HeroItems = new HashSet<Product>();
         }
 
+        public string WoWArmoryUserId { get; set; }
+        public WoWArmoryUser WoWArmoryUser { get; set; }
+
         [Required]
         public string WoWUserName { get; set; }
-
         [Required]
         public string HeroName { get; set; }
 

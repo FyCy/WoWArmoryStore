@@ -1,12 +1,13 @@
 ﻿namespace WoWArmoryStore.Services
 {
-    using System.Collections.Generic;
     using System.Linq;
     using WoWArmoryStore.Data;
     using WoWArmoryStore.Data.Models;
     using WoWArmoryStore.Services.Contracts;
-    using WoWArmoryStore.Services.Models;
     using WoWArmoryStore.Web.ViewModels;
+    using WoWArmoryStore.Services.Mapping;
+    using Microsoft.AspNetCore.Identity;
+    using System.Net.Http;
 
     public class HeroService : IHeroService
     {
@@ -17,7 +18,7 @@
             this.contex = contex;
         }
 
-        public void CreateNewHero(CreateHeroInputModel model, string user)
+        public void CreateNewHero(CreateHeroInputModel model, string user, string userId)
         {
             var hero = new Hero
             {
@@ -26,6 +27,7 @@
                 HeroRace = model.HeroRace,
                 HeroClass = model.HeroClass,
                 WoWUserName = user,
+                WoWArmoryUserId = userId,
             };
             this.contex.Heroes.Add(hero);
             this.contex.SaveChanges();

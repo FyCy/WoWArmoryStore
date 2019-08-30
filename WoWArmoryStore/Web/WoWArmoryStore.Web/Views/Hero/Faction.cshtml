@@ -3,6 +3,8 @@
     Dictionary<string, string> classDictionary = ViewBag.classes as Dictionary<string, string>;
     ViewData["Title"] = "HeroCreation";
 }
+<body class="bg-img" style="background-image: url('https://i.imgur.com/6xZrlqH.jpg')">
+</body>
 <div class="row">
     <div class="col-md-12">
         <form asp-controller="Hero" asp-action="HeroCreation">
@@ -15,15 +17,15 @@
                     {
                         @if (@item.ToString() == "Alliance")
                         {
-                            <div class="col-md-6 blue" style="border: 1px solid blue; padding: 10px">
+                            <div class="col-md-6 blue" style="padding: 10px">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <img style="border-radius: 50%" src="@ViewBag.Faction[0]" height="230" width="230" value="@item" class=" float-left faction" alt="aaaa" />
+                                        <img style="border-radius: 50%" src="@ViewBag.Faction[1]" height="230" width="200" value="@item" class=" float-left faction" alt="aaaa" />
                                     </div>
                                     <div class="col-md-9">
-                                        <input readonly="readonly" style="width: 100%" value="@item" name="HeroFaction" class="btn btn-primary form-group faction bl" asp-for="HeroFaction" label="@item" />
-                                        <p>
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                        <input readonly="readonly" style="width: 100%" value="@item" name="HeroFaction" class="btn btn-primary form-group faction bl"  asp-for="HeroFaction" label="@item" />
+                                        <p style="color: white; font-weight: bolder">
+                                            The Alliance, also known as the Grand Alliance, is one of two major political factions of the mortal races in Azeroth, its counterpart being the Horde. Driven by tradition, the Alliance consists of powerful cultures and groups bound not by desperation or necessity, but by their deep commitments to abstract concepts like nobility, honor, faith, justice, and sacrifice. Striving to represent these high ideals, its many different peoples all contribute their technical, arcane, and spiritual wisdom toward the shared goal of preserving order on Azeroth and creating a peaceful and just world.
                                         </p>
                                     </div>
                                 </div>
@@ -31,16 +33,16 @@
                         }
                         @if (@item.ToString() == "Horde")
                         {
-                            <div class="col-md-6 red" style="border: 1px solid red; padding: 10px">
+                            <div class="col-md-6 red" style="padding: 10px">
                                 <div class="row">
                                     <div class="col-md-9">
                                         <input readonly="readonly" style="width: 100%" value="@item" name="HeroFaction" class="btn btn-danger form-group faction" asp-for="HeroFaction" label="@item" />
-                                        <p>
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                        <p style="color: white; font-weight: bolder">
+                                            The Horde (also called the New Horde, Thrall's Horde or Vol'jin's Horde) is one of the two major political factions of the mortal races in Azeroth, its counterpart being the Alliance. Driven by unity, the Horde consists of a coalition of disparate races and cultures loosely joined in an alliance of convenience against a hostile world that would see them destroyed. A faction led by off-worlders and composed of outsiders, the Horde has survived the obstacles of Azeroth by bonding together, fighting as family, comrades, or even uneasy allies. Focused, ferocious, and sometimes monstrous, the Horde values strength and honor and is relentlessly opposed to any who threaten the ideals of freedom and hope, but struggles to keep aggression in check.
                                         </p>
                                     </div>
                                     <div class="col-md-3">
-                                        <img style="border-radius: 50%" src="@ViewBag.Faction[1]" height="230" width="230" value="@item" class="float-right faction" alt="aaaa" />
+                                        <img style="border-radius: 50%" src="@ViewBag.Faction[0]" height="230" width="230" value="@item" class="float-right faction" alt="aaaa" />
                                     </div>
                                 </div>
                             </div>
@@ -50,7 +52,7 @@
 
                 @*Races*@
                 <div class="row">
-                    <div style="text-align: center; margin-bottom: 20px" class="col-md-12 display-3 allianceRaces">Choose your race</div>
+                    <div style="text-align: center; margin-bottom: 20px; color: white" class="col-md-12 display-3 allianceRaces">Choose your race</div>
                     <div class="col-md-12">
                         @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Races.AlianceRaces)))
                         {

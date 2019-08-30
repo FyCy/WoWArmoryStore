@@ -6,6 +6,9 @@
     {
         List<string> GetImageUrls(string type);
 
+
+        List<string> GetImageUrls(string type, string name);
+
         Dictionary<string, string> GetClassImageUrls(string type);
     }
 }

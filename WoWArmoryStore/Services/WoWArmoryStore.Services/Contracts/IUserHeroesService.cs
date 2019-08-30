@@ -7,6 +7,6 @@
     {
         ICollection<UserHeroViewModel> UsersHeroes(string userName);
 
-        void DeleteHero(string userName, string heroNam);
+        void DeleteHero(string userName, int id);
     }
 }

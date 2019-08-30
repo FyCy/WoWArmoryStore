@@ -2,11 +2,12 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-
+    using System.Security.Claims;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using WoWArmoryStore.Data.Models;
     using WoWArmoryStore.Services.Contracts;
     using WoWArmoryStore.Web.ViewModels;
-
     public class HeroController : BaseController
     {
 
@@ -17,11 +18,12 @@
 
         private readonly IHeroService heroService;
         private readonly IImageService imageService;
-
-        public HeroController(IHeroService heroService, IImageService imageService)
+        private readonly UserManager<WoWArmoryUser> userManager;
+        public HeroController(IHeroService heroService, IImageService imageService, UserManager<WoWArmoryUser> userManager)
         {
             this.heroService = heroService;
             this.imageService = imageService;
+            this.userManager = userManager;
         }
 
         [HttpGet]
@@ -50,8 +52,9 @@
         public JsonResult HeroCreation(CreateHeroInputModel model)
         {
             var currentUser = this.User.Identity.Name;
+            var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            this.heroService.CreateNewHero(model, currentUser.ToString());
+            this.heroService.CreateNewHero(model, currentUser.ToString(),  userId);
 
             return this.Json(true);
         }

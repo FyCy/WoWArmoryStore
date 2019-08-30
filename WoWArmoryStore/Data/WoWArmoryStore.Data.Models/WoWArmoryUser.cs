@@ -15,14 +15,14 @@ namespace WoWArmoryStore.Data.Models
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
-            this.Heroes = new HashSet<Hero>();
+            this.MyHeroes = new HashSet<Hero>();
             this.Orders = new List<Order>();
             this.Posts = new HashSet<Post>();
         }
 
         public string AccountIcon { get; set; }
 
-        public ICollection<Hero> Heroes { get; set; }
+        public ICollection<Hero> MyHeroes { get; set; }
 
         public ICollection<Order> Orders { get; set; }
 

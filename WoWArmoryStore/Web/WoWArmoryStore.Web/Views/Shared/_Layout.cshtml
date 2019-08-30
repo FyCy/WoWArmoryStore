@@ -24,40 +24,6 @@
 </head>
 <body>
     <header>
-        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-                <div class="container-fluid">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WoWArmoryStore</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                        <partial name="_LoginPartial" />
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="UserHeroes" asp-action="GetUserHeroes">My Heroes</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Hero" asp-action="Faction">NewHero</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>*@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
             <div class="container-fluid">
 
@@ -69,10 +35,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 @*<div class="col-md-3">
-                    <h2>
-                        <a href="/" class="text-left text-white" style="height: 20px">Wow Armory Store</a>
-                    </h2>
-                </div>*@
+                        <h2>
+                            <a href="/" class="text-left text-white" style="height: 20px">Wow Armory Store</a>
+                        </h2>
+                    </div>*@
                 <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item ml-2">
@@ -98,11 +64,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-
+    @*<footer class="border-top footer text-muted">
         <div>
             <section id="lab_social_icon_footer" style="height: 75px">
-                <!-- Include Font Awesome Stylesheet in Header -->
                 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
                 <div class="container">
 
@@ -116,7 +80,7 @@
             </section>
         </div>
 
-    </footer>
+    </footer>*@
 
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>

@@ -17,9 +17,9 @@
             this.db = dbContext;
         }
 
-        public void DeleteHero(string userName, string heroName)
+        public void DeleteHero(string userName, int id)
         {
-            var heroToDelete = this.db.Heroes.FirstOrDefault(x => x.WoWUserName == userName && x.HeroName == heroName);
+            var heroToDelete = this.db.Heroes.FirstOrDefault(x => x.WoWUserName == userName && x.Id == id);
             this.db.Heroes.Remove(heroToDelete);
             this.db.SaveChanges();
         }

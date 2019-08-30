@@ -5,6 +5,6 @@
 
     public interface IHeroService
     {
-        void CreateNewHero(CreateHeroInputModel model, string currUser);
+        void CreateNewHero(CreateHeroInputModel model, string currUser, string userId);
     }
 }

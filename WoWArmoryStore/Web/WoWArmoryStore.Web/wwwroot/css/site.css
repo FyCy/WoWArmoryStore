@@ -403,4 +403,16 @@ table.table .avatar {
 
 .modal form label {
     font-weight: normal;
-}	
+}
+
+/*Background img*/
+.bg-img {
+    /* The image used */
+    min-height: 400px;
+    /*Center and scale the image nicely*/    
+    background-position-x: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}

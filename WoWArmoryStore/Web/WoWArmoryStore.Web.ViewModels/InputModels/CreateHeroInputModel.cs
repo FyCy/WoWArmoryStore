@@ -9,6 +9,7 @@
 
     public class CreateHeroInputModel : IMapFrom<Hero>
     {
+
         [Required]
         public string CurrUser { get; set; }
 

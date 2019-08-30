@@ -8,12 +8,14 @@
     using WoWArmoryStore.Data.Models;
     using WoWArmoryStore.Services.Mapping;
 
-    public class UserHeroViewModel : IMapFrom<Hero>
+    public class UserHeroViewModel : IMapFrom<Hero>, IMapTo<Hero>
     {
         public UserHeroViewModel()
         {
             this.HeroItems = new HashSet<Product>();
         }
+
+        public int Id { get; set; }
 
         [Required]
         public string HeroName { get; set; }

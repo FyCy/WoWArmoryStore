@@ -1,9 +1,7 @@
 ﻿namespace WoWArmoryStore.Services
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using WoWArmory.Data.Models.Enum.Classes;
     using WoWArmoryStore.Data;
     using WoWArmoryStore.Services.Contracts;
     using WoWArmoryStore.Services.Mapping;
@@ -36,6 +34,26 @@
         public List<string> GetImageUrls(string type)
         {
             var currImages = this.db.Images.Where(x => x.Type == type).To<HeroCreationImageModel>().ToList();
+            this.images.Add(type, currImages);
+
+            var imageUrls = new List<string>();
+            foreach (var imageLists in this.images)
+            {
+                if (imageLists.Key.ToString() == type)
+                {
+                    foreach (var values in imageLists.Value)
+                    {
+                        imageUrls.Add(values.ImageUrl);
+                    }
+                }
+            }
+
+            return imageUrls;
+        }
+
+        public List<string> GetImageUrls(string type, string name)
+        {
+            var currImages = this.db.Images.Where(x => x.Type == type && x.ImageName == name).To<HeroCreationImageModel>().ToList();
             this.images.Add(type, currImages);
 
             var imageUrls = new List<string>();

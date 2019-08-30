@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WoWArmoryStore.Data;
 
 namespace WoWArmoryStore.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190830103055_Users_Entity_Fix")]
+    partial class Users_Entity_Fix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,8 +164,7 @@ namespace WoWArmoryStore.Data.Migrations
 
                     b.Property<DateTime?>("ModifiedOn");
 
-                    b.Property<string>("WoWArmoryUserId")
-                        .IsRequired();
+                    b.Property<string>("WoWArmoryUserId");
 
                     b.Property<string>("WoWUserName")
                         .IsRequired();
@@ -454,10 +455,9 @@ namespace WoWArmoryStore.Data.Migrations
 
             modelBuilder.Entity("WoWArmoryStore.Data.Models.Hero", b =>
                 {
-                    b.HasOne("WoWArmoryStore.Data.Models.WoWArmoryUser", "WoWArmoryUser")
-                        .WithMany("MyHeroes")
-                        .HasForeignKey("WoWArmoryUserId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                    b.HasOne("WoWArmoryStore.Data.Models.WoWArmoryUser")
+                        .WithMany("Heroes")
+                        .HasForeignKey("WoWArmoryUserId");
                 });
 
             modelBuilder.Entity("WoWArmoryStore.Data.Models.Order", b =>
