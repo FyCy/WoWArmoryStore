@@ -26,7 +26,7 @@
                 ItemSlots = model.ItemSlots,
             };
             this.contex.Products.Add(item);
-            this.contex.SaveChangesAsync();
+            this.contex.SaveChanges();
         }
     }
 }

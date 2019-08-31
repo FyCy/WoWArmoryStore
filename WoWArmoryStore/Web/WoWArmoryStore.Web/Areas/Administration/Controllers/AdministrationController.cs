@@ -96,5 +96,19 @@
 
             return this.RedirectToAction("ItemsTable");
         }
+
+        public IActionResult UpdateItem(int id)
+        {
+            var item = this.administrationService.GetItemToUpdate(id);
+            this.ViewBag.ItemToUpdate = item;
+            return this.View(item);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateItem(Product model)
+        {
+            this.administrationService.UpdateItem(model);
+            return this.RedirectToAction("ItemsTable");
+        }
     }
 }

@@ -61,5 +61,28 @@
 
             return items;
         }
+
+        public Product GetItemToUpdate(int itemId)
+        {
+            Product itemToUpadte = this.db.Products.FirstOrDefault(item => item.Id == itemId);
+
+            return itemToUpadte;
+        }
+
+        public void UpdateItem(Product product)
+        {
+            var productToUpdate = this.db.Products.FirstOrDefault(item => item.Id == product.Id);
+
+            if (productToUpdate!= null)
+            {
+                productToUpdate.ItemName = product.ItemName;
+                productToUpdate.Description = product.Description;
+                productToUpdate.Price = product.Price;
+                productToUpdate.ArmorMaterial = product.ArmorMaterial;
+                productToUpdate.ItemSlots = product.ItemSlots;
+                this.db.SaveChanges();
+            }
+
+        }
     }
 }

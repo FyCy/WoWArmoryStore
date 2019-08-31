@@ -26,7 +26,7 @@
                 WoWArmoryUserId = userId,
             };
             this.contex.Heroes.Add(hero);
-            this.contex.SaveChangesAsync();
+            this.contex.SaveChanges();
         }
     }
 }

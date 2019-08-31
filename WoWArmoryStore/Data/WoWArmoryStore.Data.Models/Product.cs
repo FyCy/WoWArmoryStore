@@ -5,7 +5,7 @@
     using WoWArmory.Data.Models.Enum;
     using WoWArmoryStore.Data.Common.Models;
 
-    public class Product : BaseModel<int>, IDeletableEntity
+    public class Product : BaseModel<int>, IDeletableEntity 
     {
         [Required]
         public string ItemName { get; set; }

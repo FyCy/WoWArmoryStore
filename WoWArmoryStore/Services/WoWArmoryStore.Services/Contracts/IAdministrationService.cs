@@ -1,7 +1,7 @@
 ﻿namespace WoWArmoryStore.Services.Contracts
 {
     using System.Collections.Generic;
-
+    using WoWArmoryStore.Data.Models;
     using WoWArmoryStore.Web.ViewModels.ViewModels;
 
     public interface IAdministrationService
@@ -14,5 +14,8 @@
 
         void DeleteItem(int id);
 
+        Product GetItemToUpdate(int itemId);
+
+        void UpdateItem(Product product);
     }
 }

@@ -1,0 +1,78 @@
+﻿@model WoWArmoryStore.Data.Models.Product
+@{
+    ViewData["Title"] = "UpdateItem";
+    Product itemToDelete = this.ViewBag.ItemToUpdate;
+}
+    <body class="bg-img background-image">
+    </body>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 centered">
+            <form method="post" style="background-image:url('https://www.pinclipart.com/picdir/big/74-741299_albigensian-crusade-background-clipart-world-of-warcraft-blank.png')" asp-controller="Administration" asp-action="UpdateItem">
+                <div style="padding: 60px">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="@itemToDelete.ItemName" class="control-label" style="color:white"></label>
+                        <input asp-for="@itemToDelete.ItemName" name="ItemName" class="form-control centered" />
+                        <span asp-validation-for="@itemToDelete.ItemName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@itemToDelete.Description" class="control-label" style="color:white"></label>
+                        <input asp-for="@itemToDelete.Description" name="Description" class="form-control centered" />
+                        <span asp-validation-for="@itemToDelete.Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@itemToDelete.ImageUrl" class="control-label" style="color:white"></label>
+                        <input asp-for="@itemToDelete.ImageUrl" name="ImageUrl" class="form-control centered" />
+                        <span asp-validation-for="@itemToDelete.ImageUrl" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@itemToDelete.Price" class="control-label" style="color:white"></label>
+                        <input asp-for="@itemToDelete.Price" name="Price" class="form-control centered" />
+                        <span asp-validation-for="@itemToDelete.Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            @*<input class="form-check-input" asp-for="@itemToDelete.Buyable" /> @Html.DisplayNameFor(model => model.@itemToDelete.Buyable)*@
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@itemToDelete.ArmorMaterial" class="control-label" style="color:white"></label>
+                        <select class="form-control " name="ArmorMaterial">
+                            <option>@itemToDelete.ArmorMaterial</option>
+                            @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Materials)))
+                            {
+                                <option >
+                                    @item
+                                </option>
+
+                            }
+                        </select>
+                        <span asp-validation-for="@itemToDelete.ArmorMaterial" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@itemToDelete.ItemSlots" class="control-label" style="color:white"></label>
+                        <select asp-for="@itemToDelete.ItemSlots" class="form-control" name="ItemSlots">
+                            <option>@itemToDelete.ItemSlots</option>
+
+                            @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.ItemTypes)))
+                            {
+                                <option>
+                                    @item
+                                </option>
+
+                            }
+                        </select>
+
+                        <span asp-validation-for="@itemToDelete.ItemSlots" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4"></div>
+
+    </div>
