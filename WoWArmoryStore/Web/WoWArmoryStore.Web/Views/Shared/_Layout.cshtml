@@ -65,20 +65,20 @@
         </nav>
     </header>
 
-    <div class="container-fluid" style="padding: 0">
+    <div class="container-fluid" style="padding: 0; min-height:100%">
         <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3" style="flex: 1">
+        <main role="main" class="pb-3" >
             @this.RenderBody()
         </main>
     </div>
 
-	@*<div class="wrapper">
+	<div>
 		<footer style="margin-top: 15px" class="page-footer">
-			<div>
-				<p id="gray" align="center">&copy; 2018 - captain-radko. All rights reserved.</p>
+			<div style="margin-top:0.5px">
+				<p id="gray" class="text-white" align="center">&copy; 2019 WoWArmoryStore - Fycy  All rights reserved.</p>
 			</div>
 		</footer>
-	</div>*@
+	</div>
 
     @*<footer class="fixed-footer">
             <div>

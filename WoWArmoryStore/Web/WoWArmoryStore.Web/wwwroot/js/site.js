@@ -25,7 +25,7 @@ $(".draeneiClasses").hide();
 $(".worgenClasses").hide();
 $(".humanClasses").hide();
 $(".heroName").hide();
-
+$(".heroNameText").hide();
 function hiding() {
     $(".pandarenClasses").hide();
     $(".bloodElfClasses").hide();
@@ -47,6 +47,7 @@ function hiding() {
 
 $(".LastStep").click(function () {
     $(".heroName").show();
+    $(".heroNameText").show();
     $(".allianceRaces").hide();
     $(".hordeRaces").hide();
     $(".pandarenClasses").hide();
@@ -293,11 +294,11 @@ $(".allianceRaces").click(function () {
     }
     factionClasses = $(this).val();
 });
-//Factions // NAPRAVI GO NA FINKICI[ BE!!!!]
-
 $(".faction").click(function () {
     if ($(this).val() === "Horde") {
         $(".hordeRaces").show();
+
+        $(".heroNameText").hide();  
         $(".allianceRaces").hide();
         $(".pandarenClasses").hide();
         $(".bloodElfClasses").hide();
@@ -316,6 +317,7 @@ $(".faction").click(function () {
         faction = $(this).val();
     } else if ($(this).val() === "Alliance") {
         $(".allianceRaces").show();
+        $(".heroNameText").hide();
         $(".hordeRaces").hide();
         $(".pandarenClasses").hide();
         $(".bloodElfClasses").hide();
