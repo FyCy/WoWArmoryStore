@@ -8,7 +8,11 @@
     {
         ICollection<UserViewModel> UserViewModels(string userId);
 
+        ICollection<ItemViewModel> ItemViewModels();
+
         void DeleteUser(string id);
+
+        void DeleteItem(int id);
 
     }
 }

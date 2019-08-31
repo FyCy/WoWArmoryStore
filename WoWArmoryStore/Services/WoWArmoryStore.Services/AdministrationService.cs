@@ -41,5 +41,25 @@
             }).ToList();
             return users;
         }
+
+        public void DeleteItem(int id)
+        {
+            Product itemToDelete = this.db.Products.FirstOrDefault(x => x.Id == id);
+            //TODO Delete items from users inventory
+            this.db.Products.Remove(itemToDelete);
+            this.db.SaveChanges();
+        }
+
+        public ICollection<ItemViewModel> ItemViewModels()
+        {
+            var items = this.db.Products.Select(item => new ItemViewModel
+            {
+                Id = item.Id,
+                ImageUrl = item.ImageUrl,
+                ItemName = item.ItemName,
+            }).ToList();
+
+            return items;
+        }
     }
 }

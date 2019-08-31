@@ -1,7 +1,7 @@
-﻿@{
-    List<WoWArmoryStore.Web.ViewModels.ViewModels.UserHeroViewModel> heroes = ViewBag.Heroes as List<WoWArmoryStore.Web.ViewModels.ViewModels.UserHeroViewModel>;
-
-    ViewData["Title"] = "UserHeroes";
+﻿
+@{
+    this.ViewData["Title"] = "Users Table";
+    List<WoWArmoryStore.Web.ViewModels.ViewModels.UserViewModel> users = ViewBag.Users as List<WoWArmoryStore.Web.ViewModels.ViewModels.UserViewModel>;
 }
 <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,14 +12,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>*@
 </head>
-
-<body class="bg-img background-image">
+<body>
     <div class="container">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6 centered">
-                        <h2><b>Manage @User.Identity.Name's Heroes</b></h2>
+                        <h2><b>Manage Store Users</b></h2>
                     </div>
                     <div class="col-sm-6">
                         <button onclick="location.href = '/Hero/Faction'" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Hero</span></button>
@@ -29,23 +28,33 @@
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>HeroName</th>
-                        <th>HeroFaction</th>
-                        <th>HeroRace</th>
-                        <th>HeroClass</th>
+                        <th>UserId</th>
+                        <th>UserName</th>
+                        <th>UserHeroes</th>                        
                     </tr>
                 </thead>
-                @foreach (var item in heroes)
+                @foreach (var item in users)
                 {
                     <tbody>
                         <tr>
-                            <td>@item.HeroName</td>
-                            <td>@item.HeroFaction</td>
-                            <td>@item.HeroRace</td>
-                            <td>@item.HeroClass</td>
+                            <td>@item.Id</td>
+                            <td>@item.UserName</td>
+                           <td>
+                               <div class="dropdown">
+                                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                       Dropdown button
+                                   </button>
+                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                       @foreach (var hero in item.Heroes)
+                                       {
+                                           <a class="dropdown-item" href="#">@hero.HeroName</a>
+                                       }
+                                   </div>
+                               </div>
+                           </td>
 
                             <td>
-                                <a class="btn btn-danger text-white" asp-controller="UserHeroes" asp-action="DeleteHero"
+                                <a class="btn btn-danger text-white" asp-controller="Administration" asp-action="DeleteUser"
                                    asp-route-id="@item.Id">Delete Hero</a>
                             </td>
                         </tr>

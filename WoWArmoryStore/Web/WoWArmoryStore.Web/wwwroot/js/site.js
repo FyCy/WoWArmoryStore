@@ -360,15 +360,52 @@ $("#submitButton").click(function () {
 
 
 
-$("#heroDelete").click(function () {
-    heroToDelete = $("#heroDelete").val();
+
+//ItemCreation
+let itemType = "";
+let itemPrice = "";
+let itemImageUrl = "";
+let itemDescription = "";
+let itemName = "";
+let itemMaterial = "";
+
+$(".ItemType").click(function () {
+    itemType = $(this).val();
+})
+
+
+//$(".priceInput").click(function () {
+//    itemPrice = $(this).val();
+//})
+
+//$(".urlInput").click(function () {
+//    itemImageUrl = $(this).val();
+//})
+//$(".descriptionInput").click(function () {
+//    itemDescription = $(this).val();
+//})
+//$(".itemNameInput").click(function () {
+//    itemName = $(this).val();
+//})
+$(".ItemMaterial").click(function () {
+    itemMaterial = $(this).val();
+})
+
+$("#submitItemCreation").click(function () {
+
+    itemPrice = $(".priceInput").val();
+    itemImageUrl = $(".urlInput").val();
+    itemDescription = $(".descriptionInput").val();
+    itemName = $(".itemNameInput").val();
     $.ajax({
-        url: "/UserHeroes/DeleteHero",
+        url: "/Administration/Administration/AddItem",
         data: {
-            HeroName: heroToDelete.HeroName,
-            HeroFaction: heroToDelete.HeroFaction,
-            HeroRace: heroToDelete.HeroRace,
-            HeroClass: heroToDelete.HeroClass,
+            ItemName: itemName,
+            Description: itemDescription,
+            ImageUrl: itemImageUrl,
+            Price: itemPrice,
+            ArmorMaterial: itemMaterial,
+            ItemSlots: itemType,
         },
         method: "POST",
         success: function (response) {
@@ -380,17 +417,16 @@ $("#heroDelete").click(function () {
     })
 })
 
-//ItemCreation
-let itemType = "";
-$(".ItemType").click(function () {
-    itemType = $(this).val();
-})
-$("#submitItemCreation").click(function () {
-  
+
+$("#heroDelete").click(function () {
+    heroToDelete = $("#heroDelete").val();
     $.ajax({
-        url: "/AddItem",
+        url: "/UserHeroes/DeleteHero",
         data: {
-            itemType 
+            HeroName: heroToDelete.HeroName,
+            HeroFaction: heroToDelete.HeroFaction,
+            HeroRace: heroToDelete.HeroRace,
+            HeroClass: heroToDelete.HeroClass,
         },
         method: "POST",
         success: function (response) {
