@@ -391,31 +391,31 @@ $(".ItemMaterial").click(function () {
     itemMaterial = $(this).val();
 })
 
-$("#submitItemCreation").click(function () {
+//$("#submitItemCreation").click(function () {
 
-    itemPrice = $(".priceInput").val();
-    itemImageUrl = $(".urlInput").val();
-    itemDescription = $(".descriptionInput").val();
-    itemName = $(".itemNameInput").val();
-    $.ajax({
-        url: "/Administration/Administration/AddItem",
-        data: {
-            ItemName: itemName,
-            Description: itemDescription,
-            ImageUrl: itemImageUrl,
-            Price: itemPrice,
-            ArmorMaterial: itemMaterial,
-            ItemSlots: itemType,
-        },
-        method: "POST",
-        success: function (response) {
-            if (response == true) {
-                alert("You will now be redirected.");
-                window.location = "/";
-            }
-        }
-    })
-})
+//    itemPrice = $(".priceInput").val();
+//    itemImageUrl = $(".urlInput").val();
+//    itemDescription = $(".descriptionInput").val();
+//    itemName = $(".itemNameInput").val();
+//    $.ajax({
+//        url: "/Administration/Administration/AddItem",
+//        data: {
+//            ItemName: itemName,
+//            Description: itemDescription,
+//            ImageUrl: itemImageUrl,
+//            Price: itemPrice,
+//            ArmorMaterial: itemMaterial,
+//            ItemSlots: itemType,
+//        },
+//        method: "POST",
+//        success: function (response) {
+//            if (response == true) {
+//                alert("You will now be redirected.");
+//                window.location = "/";
+//            }
+//        }
+//    })
+//})
 
 
 $("#heroDelete").click(function () {

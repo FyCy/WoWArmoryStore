@@ -2,53 +2,120 @@
 @{
     ViewData["Title"] = "CreateItem";
 }
-<div class="row">
-    <div class="col-md-12">
-        <form asp-controller="Administration" asp-action="AddItem">
-            <div class="form-group">
+<body class="bg-img background-image">
+</body>
+@*<div class="row">
+        <div class="col-md-12">
+            <form asp-controller="Administration" asp-action="AddItem">
+                <div class="form-group">
 
-                <div class="row">
-                    <div style="text-align: center; margin-bottom: 20px; color: black" class="col-md-12 display-3">Choose your Item Type</div>
-                    <div class="col-md-12">
-                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.ItemTypes)))
-                        {
-                            <input readonly="readonly" asp-for="ItemSlots" style="width: 250px" value="@item" class="form-group ItemType" label="@item" />
-                        }
+                    <div class="row">
+                        <div style="text-align: center; margin-bottom: 20px; color: black" class="col-md-12 display-3">Choose your Item Type</div>
+                        <div class="col-md-12">
+                            @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.ItemTypes)))
+                            {
+                                <input readonly="readonly" asp-for="ItemSlots" style="width: 250px" value="@item" class="form-group ItemType" label="@item" />
+                            }
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div style="text-align: center; margin-bottom: 20px; color: black" class="col-md-12 display-3">Choose your Item Material</div>
+                        <div class="col-md-12">
+                            @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Materials)))
+                            {
+                                <input readonly="readonly" asp-for="ArmorMaterial" style="width: 250px" value="@item" class="form-group ItemMaterial" label="@item" />
+                            }
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-bottom: 20px; color: black" class="col-md-12 display-3">Choose price for the item</div>
+                    <div class="centered">
+                        <input type="number" min="0.1" class="centered priceInput" asp-for="Price">
+                    </div>
+
+                    <div style="text-align: center; margin-bottom: 20px; color: black" class="col-md-12 display-3">Add image url here</div>
+                    <div class="centered">
+                        <input type="text" class="centered urlInput" asp-for="ImageUrl">
+                    </div>
+
+                    <div style="text-align: center; margin-bottom: 20px; color: black" class="col-md-12 display-3">Add Description for the item</div>
+                    <div class="centered">
+                        <input type="text" class="centered descriptionInput" asp-for="Description">
+                    </div>
+
+                    <div style="text-align: center; margin-bottom: 20px; color: black" class="col-md-12 display-3">Finally Add ItemName for the item</div>
+                    <div class="centered">
+                        <input type="text" class="centered itemNameInput" asp-for="ItemName">
                     </div>
                 </div>
-                <div class="row">
-                    <div style="text-align: center; margin-bottom: 20px; color: black" class="col-md-12 display-3">Choose your Item Material</div>
-                    <div class="col-md-12">
+                <div class=" centered">
+                    <button id="submitItemCreation" class="btn btn-warning itemCreation" type="button">Create item!</button>
+                </div>
+            </form>
+        </div>
+    </div>*@
+
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 centered">
+        <form method="post" style="height:850px; background-image:url('https://www.pinclipart.com/picdir/big/74-741299_albigensian-crusade-background-clipart-world-of-warcraft-blank.png'); background-size:625px 850px" asp-controller="Administration" asp-action="AddItem">
+            <div style="padding: 100px 60px 60px 60px">
+                <div asp-validation-summary="ModelOnly" class="text-white"></div>
+                <div class="form-group">
+                    <label asp-for="@Model.ItemName" class="control-label" style="color:white"></label>
+                    <input asp-for="@Model.ItemName" class="form-control itemNameInput centered" />
+                    <span asp-validation-for="@Model.ItemName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Description" class="control-label" style="color:white"></label>
+                    <textarea style="height:150px" asp-for="@Model.Description" class="form-control descriptionInput centered">
+                        </textarea>
+                    
+
+                    <span asp-validation-for="@Model.Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.ImageUrl" class="control-label" style="color:white"></label>
+                    <input asp-for="@Model.ImageUrl" class="form-control urlInput centered" />
+                    <span asp-validation-for="@Model.ImageUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Price" class="control-label" style="color:white"></label>
+                    <input asp-for="@Model.Price" class="form-control priceInput centered" />
+                    <span asp-validation-for="@Model.Price" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="@Model.ArmorMaterial" class="control-label" style="color:white"></label>
+                    <select asp-for="@Model.ArmorMaterial" class="form-control ItemMaterial">
                         @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.Materials)))
                         {
-                            <input readonly="readonly" asp-for="ArmorMaterial" style="width: 250px" value="@item" class="form-group ItemMaterial" label="@item" />
+                            <option>
+                                @item
+                            </option>
                         }
-                    </div>
+                    </select>
+                    <span asp-validation-for="@Model.ArmorMaterial" class="text-danger"></span>
                 </div>
-                <div style="text-align: center; margin-bottom: 20px; color: black" class="col-md-12 display-3">Choose price for the item</div>
-                <div class="centered">
-                    <input type="number" min="0.1" class="centered priceInput" asp-for="Price">
+                <div class="form-group">
+                    <label asp-for="@Model.ItemSlots" class="control-label" style="color:white"></label>
+                    <select asp-for="@Model.ItemSlots" class="form-control ItemType">
+                        @foreach (var item in Enum.GetValues(typeof(WoWArmory.Data.Models.Enum.ItemTypes)))
+                        {
+                            <option>
+                                @item
+                            </option>
+                        }
+                    </select>
+                    <span asp-validation-for="@Model.ItemSlots" class="text-danger"></span>
                 </div>
 
-                <div style="text-align: center; margin-bottom: 20px; color: black" class="col-md-12 display-3">Add image url here</div>
-                <div class="centered">
-                    <input type="text" class="centered urlInput" asp-for="ImageUrl">
-                </div>
 
-                <div style="text-align: center; margin-bottom: 20px; color: black" class="col-md-12 display-3">Add Description for the item</div>
-                <div class="centered">
-                    <input type="text" class="centered descriptionInput" asp-for="Description">
+                <div class="form-group">
+                    <input id="submitItemCreation" type="submit" value="Create" class="btn btn-primary itemCreation" />
                 </div>
-
-                <div style="text-align: center; margin-bottom: 20px; color: black" class="col-md-12 display-3">Finally Add ItemName for the item</div>
-                <div class="centered">
-                    <input type="text" class="centered itemNameInput" asp-for="ItemName">
-                </div>
-            </div>
-            <div class=" centered">
-                <button id="submitItemCreation" class="btn btn-warning itemCreation" type="button">Create item!</button>
             </div>
         </form>
     </div>
+    <div class="col-md-4"></div>
 </div>
-

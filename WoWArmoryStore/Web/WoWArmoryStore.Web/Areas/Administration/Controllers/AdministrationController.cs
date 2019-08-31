@@ -68,11 +68,11 @@
             return this.View();
         }
 
-        public JsonResult AddItem(CreateItemInputModel model)
+        public IActionResult AddItem(CreateItemInputModel model)
         {
             this.itemService.CreateNewItem(model);
 
-            return this.Json(true);
+            return this.Redirect("/");
         }
 
         [Authorize(Roles = GlobalConstants.AdministratorRoleName)]

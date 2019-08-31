@@ -1,5 +1,6 @@
 ﻿namespace WoWArmoryStore.Services
 {
+    using System.Linq;
     using WoWArmoryStore.Data;
     using WoWArmoryStore.Data.Models;
     using WoWArmoryStore.Services.Contracts;
@@ -25,6 +26,8 @@
                 WoWUserName = user,
                 WoWArmoryUserId = userId,
             };
+            var u = contex.Users.FirstOrDefault(x => x.Id == userId);
+            u.MyHeroes.Add(hero);
             this.contex.Heroes.Add(hero);
             this.contex.SaveChanges();
         }

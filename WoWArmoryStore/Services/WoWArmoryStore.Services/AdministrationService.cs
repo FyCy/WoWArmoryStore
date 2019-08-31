@@ -73,12 +73,13 @@
         {
             var productToUpdate = this.db.Products.FirstOrDefault(item => item.Id == product.Id);
 
-            if (productToUpdate!= null)
+            if (productToUpdate != null)
             {
                 productToUpdate.ItemName = product.ItemName;
                 productToUpdate.Description = product.Description;
                 productToUpdate.Price = product.Price;
                 productToUpdate.ArmorMaterial = product.ArmorMaterial;
+                productToUpdate.ImageUrl = product.ImageUrl;
                 productToUpdate.ItemSlots = product.ItemSlots;
                 this.db.SaveChanges();
             }
